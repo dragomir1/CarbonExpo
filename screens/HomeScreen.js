@@ -1,4 +1,5 @@
 import React from 'react';
+import * as firebase from 'firebase';
 import {
   StyleSheet,
   Text,
@@ -22,13 +23,30 @@ export default class HomeScreen extends React.Component {
   }
 
   handleSignUp = () => {
-    const { email, password } = this.state
+    // TODO: Validate registration info
+
+    const { email, password, name } = this.state
+    // TODO: Do something with the user's name. We're currently not storing it in Firebase
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(() => this.props.navigation.navigate("LoginScreen"))
+      .then(() => {
+        console.log("Created user with firebase");
+        let user = firebase.auth().currentUser;
+
+        user.updateProfile({
+          displayName: name
+        }).then(function() {
+          // Update successful.
+        }).catch(function(error) {
+          // An error happened.
+        });
+      })
       .catch(error => this.setState({ errorMessage: error.message }))
   }
+
+  // TODO:
+  // handleSignIn => ()
 
 
   nameChangeHandler = (value) => {
@@ -88,7 +106,9 @@ export default class HomeScreen extends React.Component {
           value={this.state.password}
         />
 
-      <TouchableOpacity>
+        <TouchableOpacity
+          onPress={this.handleSignUp}
+        >
         <Image
           source={require('../assets/images//signup.png')}
           style={styles.signupStyling}

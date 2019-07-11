@@ -1,12 +1,20 @@
 import React from 'react';
-import { createAppContainer, createSwitchNavigator } from 'react-navigation';
+import {createAppContainer, createStackNavigator, createSwitchNavigator} from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
+import HomeScreen from '../screens/HomeScreen';
+import AuthLoadingScreen from '../screens/AuthLoadingScreen';
+import * as firebase from 'firebase';
 
-export default createAppContainer(
-  createSwitchNavigator({
-    // You could add another route here for authentication.
-    // Read more at https://reactnavigation.org/docs/en/auth-flow.html
-    Main: MainTabNavigator,
-  })
-);
+const AuthStack = createStackNavigator({ Registration: HomeScreen });
+
+export default createAppContainer(createSwitchNavigator(
+  {
+    AuthLoading: AuthLoadingScreen,
+    Auth: AuthStack,
+    App: MainTabNavigator,
+  },
+  {
+    initialRouteName: 'AuthLoading',
+  }
+));

@@ -1,12 +1,12 @@
+import './configuration/firebase.js';
+
 import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
 import React, { useState } from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { AppLoading } from 'expo';
-// import AppNavigator from './navigation/AppNavigator';
-import HomeScreen from './screens/HomeScreen';
-// import { createStackNavigator, createAppContainer } from "react-navigation";
+import AppNavigator from './navigation/AppNavigator';
 
 async function loadResourcesAsync() {
   await Promise.all([
@@ -50,7 +50,7 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        <HomeScreen />
+        <AppNavigator />
       </View>
     );
   }
