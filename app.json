@@ -1,0 +1,48 @@
+{
+  "expo": {
+    "name": "Carbon",
+    "slug": "projectCarbon",
+    "privacy": "public",
+    "sdkVersion": "33.0.0",
+    "platforms": [
+      "ios",
+      "android",
+      "web"
+    ],
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "splash": {
+            "backgroundColor": "#272727",
+            "image": "./assets/images/splashlarge.png",
+            "resizeMode": "contain"
+          },
+    "android": {
+      "splash" : {
+        "backgroundColor": "#272727",
+        "image": "./assets/images/splashsmall.png",
+        "ldpi": "./assets/images/splashsmall.png",
+        "mdpi": "./assets/images/splashmedium.png",
+        "hdpi": "./assets/images/splashlarge.png",
+      }
+    },
+    "ios": {
+      "splash" : {
+        "backgroundColor": "#272727",
+        "image": "./assets/images/splashsmall.png",
+        "ldpi": "./assets/images/splashsmall.png",
+        "mdpi": "./assets/images/splashmedium.png",
+        "hdpi": "./assets/images/splashlarge.png",
+      }
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true
+    }
+  }
+}
