@@ -14,7 +14,6 @@ export default class AuthLoadingScreen extends React.Component {
 
     // TODO: Is there a better place to put this? IDK.
     firebase.auth().onAuthStateChanged(user => {
-      console.warn("User: " + user);
       this.props.navigation.navigate(user ? 'App' : 'Auth');
     });
   }

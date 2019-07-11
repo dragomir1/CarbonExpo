@@ -8,9 +8,7 @@ import {
   Image,
   TouchableOpacity
 } from 'react-native';
-// import firebase from 'react-native-firebase';
-// import {Navigation} from 'react-native-navigation';
-// import RegisterScreen from './RegisterScreen';
+import * as firebase from 'firebase';
 
 export default class LoginScreen extends React.Component {
   state = {
@@ -23,21 +21,8 @@ export default class LoginScreen extends React.Component {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(() => this.props.navigation.navigate('DashboardScreen'))
+      .then(() => this.props.navigation.navigate('CarInfoScreen'))
       .catch(error => this.setState({ errorMessage: error.message }))
-  }
-
-  goToSignupHandler = () => {
-    Navigation.push(this.props.componentId, {
-      component: {
-        name: 'navigation.playground.RegisterScreen'
-      },
-      topBar: {
-        backButton: {
-          visible: false
-        }
-      }
-    });
   }
 
   render() {
@@ -92,7 +77,7 @@ export default class LoginScreen extends React.Component {
           <TouchableOpacity>
             <Text
               style={styles.signupStyle}
-              onPress={this.goToSignupHandler}>Sign Up
+              onPress={() => this.props.navigation.goBack()}>Sign Up
             </Text>
           </TouchableOpacity>
         </View>

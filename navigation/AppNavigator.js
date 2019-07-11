@@ -4,9 +4,12 @@ import {createAppContainer, createStackNavigator, createSwitchNavigator} from 'r
 import MainTabNavigator from './MainTabNavigator';
 import HomeScreen from '../screens/HomeScreen';
 import AuthLoadingScreen from '../screens/AuthLoadingScreen';
-import * as firebase from 'firebase';
+import LoginScreen from '../screens/LoginScreen';
 
-const AuthStack = createStackNavigator({ Registration: HomeScreen });
+const AuthStack = createStackNavigator({
+  Registration: HomeScreen,
+  Login: LoginScreen,
+});
 
 export default createAppContainer(createSwitchNavigator(
   {
