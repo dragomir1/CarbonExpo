@@ -5,14 +5,11 @@ import {
   Text,
   TextInput,
   View,
-  Button,
   Image,
   TouchableOpacity
 } from 'react-native';
-// import firebase from 'react-native-firebase';
-// import {Navigation} from 'react-native-navigation';
-import LoginScreen from './LoginScreen';
-// import { createStackNavigator, createAppContainer } from 'react-navigation'; Version can be specified in package.json
+
+import FacebookLoginButton from '../components/FacebookLoginButton';
 
 export default class HomeScreen extends React.Component {
   state = {
@@ -114,12 +111,7 @@ export default class HomeScreen extends React.Component {
           style={styles.signupStyling}
           />
       </TouchableOpacity>
-        <TouchableOpacity>
-          <Image
-            source={require('../assets/images/facebook.png')}
-            style={styles.facebookStyling}
-            />
-        </TouchableOpacity>
+        <FacebookLoginButton/>
         <TouchableOpacity
           onPress={this.signIn}
           >
@@ -183,12 +175,6 @@ const styles = StyleSheet.create({
     marginBottom: 20
   },
   signupStyling: {
-    marginTop: 12,
-    width: 297,
-    borderRadius: 10,
-    height: 40
-  },
-  facebookStyling: {
     marginTop: 12,
     width: 297,
     borderRadius: 10,

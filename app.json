@@ -23,7 +23,7 @@
         "image": "./assets/images/splashsmall.png",
         "ldpi": "./assets/images/splashsmall.png",
         "mdpi": "./assets/images/splashmedium.png",
-        "hdpi": "./assets/images/splashlarge.png",
+        "hdpi": "./assets/images/splashlarge.png"
       }
     },
     "ios": {
@@ -32,9 +32,12 @@
         "image": "./assets/images/splashsmall.png",
         "ldpi": "./assets/images/splashsmall.png",
         "mdpi": "./assets/images/splashmedium.png",
-        "hdpi": "./assets/images/splashlarge.png",
+        "hdpi": "./assets/images/splashlarge.png"
       }
     },
+    "facebookScheme": "fb330107447908637",
+    "facebookAppId": "330107447908637",
+    "facebookDisplayName": "carbonApp",
     "updates": {
       "fallbackToCacheTimeout": 0
     },

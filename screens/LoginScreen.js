@@ -4,11 +4,11 @@ import {
   Text,
   TextInput,
   View,
-  Button,
   Image,
   TouchableOpacity
 } from 'react-native';
 import * as firebase from 'firebase';
+import FacebookLoginButton from '../components/FacebookLoginButton';
 
 export default class LoginScreen extends React.Component {
   state = {
@@ -58,12 +58,8 @@ export default class LoginScreen extends React.Component {
             style={styles.loginStyling}
             />
         </TouchableOpacity>
-          <TouchableOpacity>
-            <Image
-              source={require('../assets/images/facebook.png')}
-              style={styles.facebookStyling}
-              />
-          </TouchableOpacity>
+
+        <FacebookLoginButton/>
 
           <TouchableOpacity>
             <Image
