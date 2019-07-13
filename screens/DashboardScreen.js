@@ -72,20 +72,7 @@ export default class DashboardScreen extends React.Component {
             </TouchableOpacity>
             </View>
       </View>
-      <TouchableOpacity
-      onPress={() => this.props.navigation.navigate('ChooseServiceScreen')}>
-      <View
-        style={styles.alertStyling}>
-        <Text style={styles.text3}> Schedule Service </Text>
-        </View>
-        </TouchableOpacity>
-        <View style={styles.containerButton}>
-        <TouchableOpacity>
-        <Image
-          source={require('../assets/images/update-info-1x.png')}
-          />
-          </TouchableOpacity>
-        </View>
+
     </View>
     );
   }
@@ -150,7 +137,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     alignItems: "center",
     justifyContent: 'center',
-    flexDirection: "row",
+    flexDirection: "column",
     marginLeft: 14
     // alignItems: 'center'
 
@@ -160,7 +147,8 @@ const styles = StyleSheet.create({
     marginLeft: 60
   },
   containerTop: {
-    marginBottom: 20,
+    // flex: 1,
+    // marginTop: 40,
     flexDirection: 'row-reverse',
     // flexDirection: 'row',
     // // marginLeft: 20
@@ -171,7 +159,7 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     justifyContent: 'center',
     // alignContent: 'center',
-    flexDirection: 'row',
+    flexDirection: 'column',
     // flexWrap: 'wrap'
   },
   images: {
