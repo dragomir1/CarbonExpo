@@ -28,10 +28,8 @@ export default class AuthLoadingScreen extends React.Component {
         .once('value', (snapshot) => {
           if(snapshot.exists()) {
             this.props.navigation.navigate('App');
-            this.props.navigation.navigate('DashboardStack');
           } else {
-            this.props.navigation.navigate('App');
-            this.props.navigation.navigate('HomeStack');
+            this.props.navigation.navigate('CarInfoStack');
           }
           });
 

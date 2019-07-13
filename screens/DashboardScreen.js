@@ -1,9 +1,8 @@
 import React from 'react';
 import { View, StyleSheet, Text, Image,TouchableOpacity } from 'react-native';
-import { createDrawerNavigator, createAppContainer } from 'react-navigation';
-import { EvilIcons } from '@expo/vector-icons';
 import { Font } from 'expo';
-
+import { NavigationActions } from 'react-navigation';
+import * as firebase from 'firebase';
 
 export default class DashboardScreen extends React.Component {
 
@@ -14,16 +13,18 @@ export default class DashboardScreen extends React.Component {
     carYear: "",
   };
 
+  navigateToService(serviceName) {
+    this.props.navigation.reset([
+        NavigationActions.navigate({ routeName: 'App' }),
+        NavigationActions.navigate({ routeName: 'ChooseService' }),
+      ]);
+  }
+
 
   render() {
     return (
     <View style={styles.containerMain}>
         <View style={styles.containerTop}>
-          <TouchableOpacity>
-            <EvilIcons
-              style={styles.iconStyle}
-              name="navicon" size={32} />
-          </TouchableOpacity>
           <View style={styles.textGreeting}>
           {/*add state to this..*/}
              <Text style={styles.text}>Hi, John</Text>
@@ -32,7 +33,10 @@ export default class DashboardScreen extends React.Component {
         </View>
       <View style={styles.containerMain1}>
           <View style={styles.container}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              // DONT SHIP WITH THIS.
+              onPress={() => firebase.auth().signOut() }
+            >
               <Image
                 source={require('../assets/images/engine-text-1x.png')}
                 style={styles.images}
@@ -52,7 +56,9 @@ export default class DashboardScreen extends React.Component {
             </TouchableOpacity>
             </View>
             <View style={styles.container}>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={ ()=> this.navigateToService('cashwash') }
+            >
               <Image
                 source={require('../assets/images/carwash-text-1x.png')}
                 style={styles.images}

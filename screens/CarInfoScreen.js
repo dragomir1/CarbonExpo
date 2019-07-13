@@ -25,6 +25,7 @@ export default class CarInfoScreen extends React.Component {
       .then(() => {
         console.warn("added carModel");
       })
+      .then(() => this.props.navigation.navigate('App'))
       .catch(error => {
         console.warn(error)
       });
