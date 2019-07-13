@@ -1,13 +1,17 @@
 import { createDrawerNavigator } from "react-navigation";
 import DashboardScreen from '../screens/DashboardScreen';
+import AppDrawerContent from './AppDrawerContent';
+import LinksScreen from '../screens/LinksScreen';
 
 const AppDrawer = createDrawerNavigator(
   {
-    Dashboard: DashboardScreen
+    Dashboard: DashboardScreen,
+    About: LinksScreen,
   },
   {
     initialRouteName: 'Dashboard',
     drawerPosition: 'right',
+    contentComponent: AppDrawerContent
   }
 );
 
