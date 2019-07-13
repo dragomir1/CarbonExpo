@@ -10,6 +10,8 @@ import {
 } from 'react-native';
 
 import FacebookLoginButton from '../components/FacebookLoginButton';
+import GoogleLoginButton from '../components/GoogleLoginButton';
+
 
 export default class HomeScreen extends React.Component {
   state = {
@@ -112,14 +114,7 @@ export default class HomeScreen extends React.Component {
           />
       </TouchableOpacity>
         <FacebookLoginButton/>
-        <TouchableOpacity
-          onPress={this.signIn}
-          >
-          <Image
-            source={require('../assets/images/google.png')}
-            style={styles.googleStyling}
-            />
-        </TouchableOpacity>
+        <GoogleLoginButton />
           <View style={styles.footerContainer}>
             <Text
               style={styles.alreadyhaveaccttext}>Already have an account?

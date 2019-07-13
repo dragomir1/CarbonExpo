@@ -5,8 +5,12 @@
     "privacy": "public",
     "sdkVersion": "33.0.0",
     "platforms": [
-      "ios",
-      "android",
+      "ios": {
+      "bundleIdentifier": "carbonApp"
+    },
+    "android": {
+      "package": "carbonApp"
+    }
       "web"
     ],
     "version": "1.0.0",

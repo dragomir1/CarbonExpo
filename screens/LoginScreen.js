@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import * as firebase from 'firebase';
 import FacebookLoginButton from '../components/FacebookLoginButton';
+import GoogleLoginButton from '../components/GoogleLoginButton';
 
 export default class LoginScreen extends React.Component {
   state = {
@@ -60,13 +61,7 @@ export default class LoginScreen extends React.Component {
         </TouchableOpacity>
 
         <FacebookLoginButton/>
-
-          <TouchableOpacity>
-            <Image
-              source={require('../assets/images/google.png')}
-              style={styles.googleStyling}
-              />
-          </TouchableOpacity>
+        <GoogleLoginButton />
           <View style={styles.footerContainer}>
           <Text style={styles.donthaveaccttxt}>Don't have an account?
           </Text>
