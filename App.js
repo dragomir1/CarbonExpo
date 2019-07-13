@@ -1,15 +1,10 @@
 import './configuration/firebase.js';
 
-import { Asset } from 'expo-asset';
 import * as Font from 'expo-font';
 import React, { useState } from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 import { AppLoading } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
-import DashboardScreen from './screens/DashboardScreen';
-// import DrawerNavigator from './DrawerNavigation/DrawerNavigator';
-// import { Font } from 'expo';
 
 async function loadResourcesAsync() {
   await Promise.all([
@@ -34,11 +29,6 @@ function handleFinishLoading(setLoadingComplete) {
 }
 
 export default function App(props) {
-
-  state ={
-    fontLoaded: false,
-  }
-
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 
   if (!isLoadingComplete && !props.skipLoadingScreen) {
