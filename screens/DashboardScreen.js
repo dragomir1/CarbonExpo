@@ -14,10 +14,7 @@ export default class DashboardScreen extends React.Component {
   };
 
   navigateToService(serviceName) {
-    this.props.navigation.reset([
-        NavigationActions.navigate({ routeName: 'App' }),
-        NavigationActions.navigate({ routeName: 'ChooseService' }),
-      ]);
+    this.props.navigation.push('ChooseService');
   }
 
 
