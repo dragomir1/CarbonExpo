@@ -18,20 +18,12 @@ const config = Platform.select({
   default: {},
 });
 
-// const ServiceStack = createStackNavigator(
-//   {
-//     Home: ChooseServiceScreen,
-//   },
-//   config
-// );
-
-// ServiceStack.path = '';
 
 const HomeStack = createStackNavigator(
   {
     Home: CarInfoScreen,
     ChooseServiceScreen: ChooseServiceScreen,
-  
+
   },
   config
 );
