@@ -1,10 +1,10 @@
 import {createStackNavigator} from "react-navigation";
 import LinksScreen from '../screens/LinksScreen';
-import ChooseServiceScreen from '../screens/ChooseServiceScreen';
+import ChooseServiceOptionsScreen from '../screens/ChooseServiceOptionsScreen';
 
 const ChooseServiceStack = createStackNavigator(
   {
-    ServiceOptions: ChooseServiceScreen,
+    ServiceOptions: ChooseServiceOptionsScreen,
 
     // TODO: Fix this
     ServiceOptionsSuccess: LinksScreen

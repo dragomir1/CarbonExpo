@@ -11,7 +11,6 @@ import LoginScreen from '../screens/LoginScreen';
 import AuthLoadingScreen from '../screens/AuthLoadingScreen';
 import CarInfoScreen from '../screens/CarInfoScreen';
 import TabBarIcon from '../components/TabBarIcon';
-import ChooseServiceScreen from '../screens/ChooseServiceScreen';
 import DashboardScreen from '../screens/DashboardScreen';
 
 const config = Platform.select({
