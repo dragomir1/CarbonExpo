@@ -12,6 +12,7 @@ import AuthLoadingScreen from '../screens/AuthLoadingScreen';
 import CarInfoScreen from '../screens/CarInfoScreen';
 import TabBarIcon from '../components/TabBarIcon';
 import ChooseServiceScreen from '../screens/ChooseServiceScreen';
+import DashboardScreen from '../screens/DashboardScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
@@ -19,10 +20,34 @@ const config = Platform.select({
 });
 
 
+const DashboardStack = createStackNavigator(
+  {
+    Home: DashboardScreen,
+
+  },
+  config
+);
+
+DashboardStack.navigationOptions = {
+  tabBarLabel: 'D',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={
+        Platform.OS === 'ios'
+          ? `ios-information-circle${focused ? '' : '-outline'}`
+          : 'md-information-circle'
+      }
+    />
+  ),
+};
+
+DashboardStack.path = '';
+
+
 const HomeStack = createStackNavigator(
   {
     Home: CarInfoScreen,
-    ChooseServiceScreen: ChooseServiceScreen,
 
   },
   config
@@ -44,21 +69,6 @@ HomeStack.navigationOptions = {
 
 HomeStack.path = '';
 
-// const LinksStack = createStackNavigator(
-//   {
-//     Links: LinksScreen,
-//   },
-//   config
-// );
-
-// LinksStack.navigationOptions = {
-//   tabBarLabel: 'Links',
-//   tabBarIcon: ({ focused }) => (
-//     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
-//   ),
-// };
-//
-// LinksStack.path = '';
 
 const SettingsStack = createStackNavigator(
   {
@@ -78,6 +88,7 @@ SettingsStack.navigationOptions = {
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
+  DashboardStack,
   // LinksStack,
   SettingsStack,
 });

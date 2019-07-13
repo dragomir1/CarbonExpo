@@ -22,7 +22,6 @@ export default class LoginScreen extends React.Component {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(() => this.props.navigation.navigate('CarInfoScreen'))
       .catch(error => this.setState({ errorMessage: error.message }))
   }
 

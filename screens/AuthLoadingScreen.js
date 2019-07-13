@@ -14,9 +14,33 @@ export default class AuthLoadingScreen extends React.Component {
 
     // TODO: Is there a better place to put this? IDK.
     firebase.auth().onAuthStateChanged(user => {
-      this.props.navigation.navigate(user ? 'App' : 'Auth');
+      // this.props.navigation.navigate(user ? 'App' : 'Auth');
+
+
+      // if user => nav to app else nav to setting screen
+
+      if(user) {
+        let user = firebase.auth().currentUser;
+        let userId = user.uid;
+        console.warn(userId)
+        firebase.database()
+        .ref('userCarInfo/' + userId)
+        .once('value', (snapshot) => {
+          if(snapshot.exists()) {
+            this.props.navigation.navigate('App');
+            this.props.navigation.navigate('DashboardStack');
+          } else {
+            this.props.navigation.navigate('App');
+            this.props.navigation.navigate('HomeStack');
+          }
+          });
+
+      } else {
+        this.props.navigation.navigate('Auth');
+      }
     });
   }
+
 
   // Render any loading content that you like here
   render() {
