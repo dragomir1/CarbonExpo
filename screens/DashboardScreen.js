@@ -13,8 +13,8 @@ export default class DashboardScreen extends React.Component {
     carYear: "",
   };
 
-  navigateToService(serviceName) {
-    this.props.navigation.push('ChooseService');
+  navigateToService(serviceType) {
+    this.props.navigation.push('ChooseService', { serviceType: serviceType });
   }
 
 

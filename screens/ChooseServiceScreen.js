@@ -1,10 +1,15 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 
-export default function ChooseServiceScreen() {
+export default function ChooseServiceScreen(props) {
+  // TODO: Set this to a service
+  const defaultServiceType = '--default-service-type--fix-me--';
+
+  const serviceType = props.navigation.getParam('serviceType', defaultServiceType);
+
   return (
     <View style={styles.container}>
-      <Text>ChooseServiceScreen</Text>
+      <Text>ChooseServiceScreen - Type: {serviceType}</Text>
     </View>
   );
 }
