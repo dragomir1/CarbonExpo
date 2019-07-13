@@ -4,15 +4,6 @@
     "slug": "projectCarbon",
     "privacy": "public",
     "sdkVersion": "33.0.0",
-    "platforms": [
-      "ios": {
-      "bundleIdentifier": "carbonApp"
-    },
-    "android": {
-      "package": "carbonApp"
-    }
-      "web"
-    ],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -37,7 +28,8 @@
         "ldpi": "./assets/images/splashsmall.png",
         "mdpi": "./assets/images/splashmedium.png",
         "hdpi": "./assets/images/splashlarge.png"
-      }
+      },
+      "supportsTablet": true
     },
     "facebookScheme": "fb330107447908637",
     "facebookAppId": "330107447908637",
@@ -48,8 +40,5 @@
     "assetBundlePatterns": [
       "**/*"
     ],
-    "ios": {
-      "supportsTablet": true
-    }
   }
 }
