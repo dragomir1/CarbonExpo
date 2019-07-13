@@ -11,15 +11,27 @@ import LoginScreen from '../screens/LoginScreen';
 import AuthLoadingScreen from '../screens/AuthLoadingScreen';
 import CarInfoScreen from '../screens/CarInfoScreen';
 import TabBarIcon from '../components/TabBarIcon';
+import ChooseServiceScreen from '../screens/ChooseServiceScreen';
 
 const config = Platform.select({
   web: { headerMode: 'screen' },
   default: {},
 });
 
+// const ServiceStack = createStackNavigator(
+//   {
+//     Home: ChooseServiceScreen,
+//   },
+//   config
+// );
+
+// ServiceStack.path = '';
+
 const HomeStack = createStackNavigator(
   {
     Home: CarInfoScreen,
+    ChooseServiceScreen: ChooseServiceScreen,
+  
   },
   config
 );

@@ -14,7 +14,7 @@
     "icon": "./assets/images/icon.png",
     "splash": {
             "backgroundColor": "#272727",
-            "image": "./assets/images/splashlarge.png",
+            "image": "./assets/images/splashsmall.png",
             "resizeMode": "contain"
           },
     "android": {

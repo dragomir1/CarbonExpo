@@ -7,20 +7,19 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { AppLoading } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
+import DashboardScreen from './screens/DashboardScreen';
+// import DrawerNavigator from './DrawerNavigation/DrawerNavigator';
+// import { Font } from 'expo';
 
 async function loadResourcesAsync() {
   await Promise.all([
-    Asset.loadAsync([
-      // require('./assets/images/robot-dev.png'),
-      // require('./assets/images/robot-prod.png'),
-    ]),
+    // do we need to preload the images here...
+    // Asset.loadAsync([
+    // require('./assets/images/filename')
+  // ])
     Font.loadAsync({
-      // This is the font that we are using for our tab bar
-      // ...Ionicons.font,
-      // We include SpaceMono because we use it in HomeScreen.js. Feel free to
-      // remove this if you are not using it in your app
-      // 'space-mono': require('./assets/fonts/SpaceMono-Regular.ttf'),
-    }),
+      'open-sans-regular': require('./assets/fonts/OpenSans-Regular.ttf'),
+    })
   ]);
 }
 
@@ -36,6 +35,10 @@ function handleFinishLoading(setLoadingComplete) {
 
 export default function App(props) {
 
+  state ={
+    fontLoaded: false,
+  }
+
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 
   if (!isLoadingComplete && !props.skipLoadingScreen) {
@@ -50,7 +53,7 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        <AppNavigator />
+        <DashboardScreen />
       </View>
     );
   }

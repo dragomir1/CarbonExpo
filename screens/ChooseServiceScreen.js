@@ -1,16 +1,16 @@
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 
-export default function CarInfoScreen() {
+export default function ChooseServiceScreen() {
   return (
     <View style={styles.container}>
-      <Text>Sup Bro. CarInfoScreen</Text>
+      <Text>ChooseServiceScreen</Text>
     </View>
   );
 }
 
-CarInfoScreen.navigationOptions = {
-  title: 'Car Info',
+ChooseServiceScreen.navigationOptions = {
+  title: 'Service Screen',
 };
 
 const styles = StyleSheet.create({
