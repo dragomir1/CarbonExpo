@@ -8,6 +8,9 @@ const ChooseServiceStack = createStackNavigator(
 
     // TODO: Fix this
     ServiceOptionsSuccess: LinksScreen
+  },
+  {
+    headerMode: 'none'
   }
 );
 

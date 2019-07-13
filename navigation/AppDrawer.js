@@ -3,20 +3,20 @@ import DashboardScreen from '../screens/DashboardScreen';
 
 const AppDrawer = createDrawerNavigator(
   {
-    Dashboard: DashboardScreen,
+    Dashboard: DashboardScreen
   },
   {
-    intialRouteName: 'Dashboard',
-    navigationOptions: {
-      headerStyle : {
-        backgroundColor: '#f4511e',
-      },
-      headerTintColor: '#fff',
-      headerTitleStyle : {
-        color: 'white',
-      },
-    },
+    initialRouteName: 'Dashboard',
+    drawerPosition: 'right',
   }
 );
+
+// If you want a custom title for the drawer, do something like this:
+// About: {
+//   screen: About,
+//     navigationOptions: {
+//     drawerLabel: "About Us"
+//   },
+// },
 
 export default AppDrawer;

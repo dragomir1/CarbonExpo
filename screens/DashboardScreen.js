@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, Text, Image,TouchableOpacity } from 'react-native';
 import { Font } from 'expo';
-import { NavigationActions } from 'react-navigation';
+import { EvilIcons } from '@expo/vector-icons';
 import * as firebase from 'firebase';
 
 export default class DashboardScreen extends React.Component {
@@ -22,6 +22,13 @@ export default class DashboardScreen extends React.Component {
     return (
     <View style={styles.containerMain}>
         <View style={styles.containerTop}>
+          <TouchableOpacity>
+            <EvilIcons
+              style={styles.iconStyle}
+              name="navicon" size={32}
+              onPress={() => this.props.navigation.openDrawer()}
+            />
+          </TouchableOpacity>
           <View style={styles.textGreeting}>
           {/*add state to this..*/}
              <Text style={styles.text}>Hi, John</Text>

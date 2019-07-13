@@ -5,10 +5,10 @@ import { createStackNavigator } from 'react-navigation';
 import ChooseServiceStack from './ChooseServiceStack';
 import AppDrawer from './AppDrawer';
 
-const config = Platform.select({
-  web: { headerMode: 'screen' },
+const config = {
+  headerMode: 'none',
   default: {},
-});
+};
 
 
 const AppStack = createStackNavigator(
