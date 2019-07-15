@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
+import CarInfoScreen from './screens/CarInfoScreen';
 
 async function loadResourcesAsync() {
   await Promise.all([
