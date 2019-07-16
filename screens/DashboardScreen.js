@@ -17,6 +17,21 @@ export default class DashboardScreen extends React.Component {
     this.props.navigation.push('ChooseService', { serviceType: serviceType });
   }
 
+// set up settimeout function that returns a message in the screen.
+// let alertMsg =
+      // setTimeOut() => {
+      //
+      // }
+
+// alert messge
+// <View
+//   style={styles.scheduleServiceAlert}>
+//   <Text style={styles.text4}>
+//     You are due for an oil change.  Click the icon to schedule service.
+//   </Text>
+// </View>
+
+
 
   render() {
     return (
@@ -36,11 +51,10 @@ export default class DashboardScreen extends React.Component {
           </View>
         </View>
       <View style={styles.containerMain1}>
-          <View style={styles.container}>
+          <View>
             <TouchableOpacity
               // DONT SHIP WITH THIS.
-              onPress={() => firebase.auth().signOut() }
-            >
+              onPress={() => firebase.auth().signOut() }>
               <Image
                 source={require('../assets/images/engine-text-1x.png')}
                 style={styles.images}
@@ -59,30 +73,48 @@ export default class DashboardScreen extends React.Component {
                 />
             </TouchableOpacity>
             </View>
-            <View style={styles.container}>
-            <TouchableOpacity
-              onPress={ ()=> this.navigateToService('cashwash') }
-            >
-              <Image
-                source={require('../assets/images/carwash-text-1x.png')}
-                style={styles.images}
-                />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Image
-                source={require('../assets/images/gas-text-1x.png')}
-                style={styles.images}
-                />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Image
-                source={require('../assets/images/search-text-1x.png')}
-                style={styles.images}
-                />
-            </TouchableOpacity>
+            <View>
+              <TouchableOpacity>
+                <Image
+                  source={require('../assets/images/carwash-text-1x.png')}
+                  style={styles.images}
+                  />
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Image
+                  source={require('../assets/images/gas-text-1x.png')}
+                  style={styles.images}
+                  />
+              </TouchableOpacity>
+              <TouchableOpacity>
+                <Image
+                  source={require('../assets/images/search-text-1x.png')}
+                  style={styles.images}
+                  />
+              </TouchableOpacity>
             </View>
       </View>
 
+        <View
+          style={styles.updateButtonStyle}>
+          <TouchableOpacity
+            onPress={ ()=> this.navigateToService('CarInfoScreen') }
+            >
+          <Image
+            source={require('../assets/images/update.png')}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={ ()=> this.navigateToService('cashwash') }
+            >
+            <View
+              style={styles.scheduleServiceButton}>
+              <Text style={styles.text4}>
+                Schedule Your Service
+              </Text>
+            </View>
+          </TouchableOpacity>
+        </View>
     </View>
     );
   }
@@ -95,8 +127,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'center',
     alignContent: 'center',
-    // flexDirection: 'row',
-    flexWrap: 'wrap',
+    flexDirection: 'column',
+    // flexWrap: 'wrap',
     marginTop:50
   },
   containerMain1: {
@@ -133,9 +165,35 @@ const styles = StyleSheet.create({
     fontFamily: 'open-sans-regular',
     color: '#fff'
   },
+  text4: {
+    // paddingRight: 20,
+    // marginTop:10,
+    fontSize: 12,
+    fontFamily: 'open-sans-regular',
+    color: '#fff',
+    textAlign: 'center',
+  },
   textGreeting: {
     flexDirection: 'column',
 
+  },
+  scheduleServiceButton: {
+    backgroundColor: "#254ade",
+    borderRadius: 20,
+    marginTop: 10,
+    width: 175,
+    height: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  scheduleServiceAlert: {
+    backgroundColor: "#254ade",
+    borderRadius: 20,
+    marginTop: 10,
+    width: 175,
+    height: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   alertStyling: {
     // fix this styling
@@ -180,5 +238,12 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     // width: undefined,
     // height: undefined
+  },
+  updateButtonStyle: {
+  // flex: 1,
+  // justifyContent: 'center',
+  alignItems: 'center',
+  flexDirection: 'column',
+  marginTop: 20,
   }
 });

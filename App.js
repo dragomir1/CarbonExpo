@@ -6,6 +6,9 @@ import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
 import CarInfoScreen from './screens/CarInfoScreen';
+import CreditCardInfoScreen from './screens/CreditCardInfoScreen';
+import DashboardScreen from './screens/DashboardScreen';
+import AppointmentScreen from './screens/AppointmentScreen';
 
 async function loadResourcesAsync() {
   await Promise.all([
@@ -15,6 +18,7 @@ async function loadResourcesAsync() {
   // ])
     Font.loadAsync({
       'open-sans-regular': require('./assets/fonts/OpenSans-Regular.ttf'),
+      'roboto-bold': require('./assets/fonts/Roboto-Bold.ttf'),
     })
   ]);
 }

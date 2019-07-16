@@ -5,6 +5,7 @@ import HomeScreen from '../screens/HomeScreen';
 import AuthLoadingScreen from '../screens/AuthLoadingScreen';
 import LoginScreen from '../screens/LoginScreen';
 import CarInfoScreen from '../screens/CarInfoScreen';
+import CreditCardInfoScreen from '../screens/CreditCardInfoScreen';
 import AppStack from './AppStack';
 
 const AuthStack = createStackNavigator({
@@ -22,6 +23,8 @@ export default createAppContainer(createSwitchNavigator(
     // TODO: Change this to a stack for adding Payment info
     // post-registration info
     CarInfoStack: CarInfoScreen,
+    // added this for navigation...not sure if it's in right place
+    CreditCardInfoScreen: CreditCardInfoScreen
   },
   {
     initialRouteName: 'AuthLoading',

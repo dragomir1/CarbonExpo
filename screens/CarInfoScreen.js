@@ -154,6 +154,10 @@ export default class CarInfoScreen extends React.Component {
       value: "Inline 5-cylinder"
     }];
 
+  // if(this.state.carMake === "Toyota") {
+  // display Toyota's carModels...else if this.state.carMake === 'Honda'
+  // display Honda's carModels.
+
     return (
       <View style={styles.container}>
         <Text style={styles.carHeader}> Tell us about your car</Text>
@@ -223,13 +227,6 @@ CarInfoScreen.navigationOptions = {
   title: 'Car Info',
 };
 
-// const styles1 = StyleSheet.create({
-//   dropdown: {
-//   itemCount: 5
-// }
-// })
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -239,8 +236,8 @@ const styles = StyleSheet.create({
     // flexDirection: 'row'
   },
   ccInfo: {
-    height: 45,
-    width: 275,
+    height: 25,
+    width: 175,
     backgroundColor: '#000',
     borderRadius: 25,
     justifyContent: 'center',
@@ -257,7 +254,7 @@ const styles = StyleSheet.create({
   },
   carHeader: {
     fontSize: 20,
-    fontFamily: 'open-sans-regular',
+    fontFamily: 'roboto-bold',
     fontWeight: '700',
   },
   carBodyInfo: {
@@ -276,5 +273,4 @@ const styles = StyleSheet.create({
   continueStyling: {
     marginTop: 10,
   }
-
 });
