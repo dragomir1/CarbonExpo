@@ -10,16 +10,11 @@ import {
 from 'react-native';
 
 export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      chosenDate: new Date(),
-      text:""
 
-    };
-
-    this.setDate = this.setDate.bind(this);
-  }
+  state ={
+  text: "",
+  chooseDate: new Date()
+}
 
   setDate(newDate) {
     this.setState({chosenDate: newDate});
