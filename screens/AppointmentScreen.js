@@ -8,13 +8,18 @@ import {
   TouchableOpacity,
   StyleSheet}
 from 'react-native';
+import * as SMS from 'expo-sms';
 
 export default class App extends Component {
 
-  state ={
-  text: "",
-  chooseDate: new Date()
-}
+  constructor(props) {
+    super(props);
+    this.state = {
+      chosenDate: new Date()
+    };
+
+    this.setDate = this.setDate.bind(this);
+  }
 
   setDate(newDate) {
     this.setState({chosenDate: newDate});

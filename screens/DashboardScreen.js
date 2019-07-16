@@ -60,13 +60,17 @@ export default class DashboardScreen extends React.Component {
                 style={styles.images}
                 />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={ ()=> this.navigateToService('tires') }
+              >
               <Image
                 source={require('../assets/images/tires-text-1x.png')}
                 style={styles.images}
                 />
             </TouchableOpacity>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={ ()=> this.navigateToService('windshield') }
+              >
               <Image
                 source={require('../assets/images/windshield-text-1x.png')}
                 style={styles.images}
@@ -74,19 +78,25 @@ export default class DashboardScreen extends React.Component {
             </TouchableOpacity>
             </View>
             <View>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={ ()=> this.navigateToService('carwash') }
+                >
                 <Image
                   source={require('../assets/images/carwash-text-1x.png')}
                   style={styles.images}
                   />
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={ ()=> this.navigateToService('gas') }
+                >
                 <Image
                   source={require('../assets/images/gas-text-1x.png')}
                   style={styles.images}
                   />
               </TouchableOpacity>
-              <TouchableOpacity>
+              <TouchableOpacity
+                onPress={ ()=> this.navigateToService('search') }
+                >
                 <Image
                   source={require('../assets/images/search-text-1x.png')}
                   style={styles.images}
