@@ -8,7 +8,7 @@ export default class CreditCardInfoScreen extends React.Component {
   return (
     <View style={styles.container}>
         <Text style={styles.cardHeader}> Credit Card Information </Text>
-        <Text style={styles.cardBodyInfo}>Fill out your payment Information for your future appointments.  Don't worry, your Information is protected and safe with us.</Text>
+        <Text style={styles.cardBodyInfo}>Fill out your payment Information for your future appointments. Not to worry, your Information is protected and safe with us.</Text>
       <View style={styles.container1}>
         <TextInput
           placeholder="Name"

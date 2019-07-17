@@ -4,11 +4,12 @@ import { Font } from 'expo';
 import { EvilIcons } from '@expo/vector-icons';
 import * as firebase from 'firebase';
 
+
 export default class DashboardScreen extends React.Component {
   constructor(props) {
     super(props);
-    this.  state = {
-        name: "",
+    this.state = {
+        userName: firebase.auth().currentUser.displayName,
         carMake: "",
         carModel: "",
         carYear: "",
@@ -52,8 +53,8 @@ export default class DashboardScreen extends React.Component {
           </TouchableOpacity>
           <View style={styles.textGreeting}>
           {/*add state to this..*/}
-             <Text style={styles.text}>Hi, John</Text>
-             <Text style={styles.text1}>Your Car: Toyota Camry, 2011</Text>
+             <Text style={styles.text}>Hi {this.state.userName},</Text>
+             <Text style={styles.text1}>Your Car: {this.props.name}, {this.props.carYear}</Text>
           </View>
         </View>
           <Text>{this.alertBoxHandler()}</Text>
