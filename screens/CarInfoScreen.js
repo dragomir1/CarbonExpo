@@ -16,17 +16,17 @@ export default class CarInfoScreen extends React.Component {
       carMilage: "",
       carEngineType: "",
       userName: firebase.auth().currentUser.displayName
-    }
-  }
 
-  nameChangeHandler = (value) => {
+  }
+}
+
+  nameChangeHandler = (event) => {
+    const target = event.target
     this.setState({
-      carModel: value,
-      carYear: value,
-      carMake: value,
-      carMilage: value,
-      carEngineType: value
+      [target.name]: target.value
+
     });
+    console.warn(this.state)
   };
 
   submitInfoHandler = () => {
@@ -174,8 +174,10 @@ export default class CarInfoScreen extends React.Component {
           data={dataCarMake}
           style={styles.dropdown}
           baseColor="#000"
-          onPress={this.nameChangeHandler}
+          onChangeText={(carMake) => this.setState({carMake})}
           value={this.state.carMake}
+          // name="carMake"
+
           />
 
         <Dropdown
@@ -183,8 +185,9 @@ export default class CarInfoScreen extends React.Component {
           data={dataCarModel}
           style={styles.dropdown}
           baseColor="#000"
-          onPress={this.nameChangeHandler}
+          onChangeText={(carModel) => this.setState({carModel})}
           value={this.state.carModel}
+          name="carModel"
           />
 
         <Dropdown
@@ -192,8 +195,9 @@ export default class CarInfoScreen extends React.Component {
           data={dataCarYear}
           style={styles.dropdown}
           baseColor="#000"
-          onPress={this.nameChangeHandler}
+          onChangeText={(carYear) => this.setState({carYear})}
           value={this.state.carYear}
+          name="carYear"
           />
 
         <Dropdown
@@ -201,8 +205,9 @@ export default class CarInfoScreen extends React.Component {
           data={dataCarMilage}
           style={styles.dropdown}
           baseColor="#000"
-          onPress={this.nameChangeHandler}
+          onChangeText={(carMilage) => this.setState({carMilage})}
           value={this.state.carMilage}
+          name="carMilage"
           />
 
         <Dropdown
@@ -210,8 +215,9 @@ export default class CarInfoScreen extends React.Component {
           data={dataCarEngineType}
           style={styles.dropdown}
           baseColor="#000"
-          onPress={this.nameChangeHandler}
+          onChangeText={(carEngineType) => this.setState({carEngineType})}
           value={this.state.carEngineType}
+          name="carEngineType"
           />
         <TouchableOpacity>
           <View style={styles.ccInfo}>
@@ -286,6 +292,7 @@ const styles = StyleSheet.create({
   dropdown: {
     padding: 45,
     marginBottom: 10,
+    width: 200
   },
   continueStyling: {
     marginTop: 10,
