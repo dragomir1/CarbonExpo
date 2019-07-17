@@ -1,36 +1,42 @@
 import React from 'react';
-import { View, StyleSheet, Text, Image,TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, Image,TouchableOpacity, ActivityIndicator, } from 'react-native';
 import { Font } from 'expo';
 import { EvilIcons } from '@expo/vector-icons';
 import * as firebase from 'firebase';
 
 export default class DashboardScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.  state = {
+        name: "",
+        carMake: "",
+        carModel: "",
+        carYear: "",
+        timePassed: false,
+        isLoaded: false,
+      };
+  }
 
-  state = {
-    name: "",
-    carMake: "",
-    carModel: "",
-    carYear: "",
-  };
+// when the screen loads then the setTimeout funcion runs.
+
 
   navigateToService(serviceType) {
     this.props.navigation.push('ChooseService', { serviceType: serviceType });
   }
 
-// set up settimeout function that returns a message in the screen.
-// let alertMsg =
-      // setTimeOut() => {
-      //
-      // }
+  // we need to get info from firebase to add in state.
 
-// alert messge
-// <View
-//   style={styles.scheduleServiceAlert}>
-//   <Text style={styles.text4}>
-//     You are due for an oil change.  Click the icon to schedule service.
-//   </Text>
-// </View>
-
+ alertBoxHandler = () => {
+   alertBox = setTimeout(() => {
+       <View
+         style={styles.scheduleServiceAlert}>
+         <Text style={styles.text4}>
+           You are due for an oil change.  Click the icon to schedule service.
+         </Text>
+       </View>
+   }, 3000);
+ return alertBox;
+ }
 
 
   render() {
@@ -50,21 +56,13 @@ export default class DashboardScreen extends React.Component {
              <Text style={styles.text1}>Your Car: Toyota Camry, 2011</Text>
           </View>
         </View>
+          <Text>{this.alertBoxHandler()}</Text>
       <View style={styles.containerMain1}>
           <View>
             <TouchableOpacity
-              // DONT SHIP WITH THIS.
-              onPress={() => firebase.auth().signOut() }>
+              onPress={ ()=> this.navigateToService('engine') }>
               <Image
                 source={require('../assets/images/engine-text-1x.png')}
-                style={styles.images}
-                />
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={ ()=> this.navigateToService('tires') }
-              >
-              <Image
-                source={require('../assets/images/tires-text-1x.png')}
                 style={styles.images}
                 />
             </TouchableOpacity>
@@ -73,6 +71,12 @@ export default class DashboardScreen extends React.Component {
               >
               <Image
                 source={require('../assets/images/windshield-text-1x.png')}
+                style={styles.images}
+                />
+            </TouchableOpacity>
+            <TouchableOpacity>
+              <Image
+                source={require('../assets/images/tires-text-1x.png')}
                 style={styles.images}
                 />
             </TouchableOpacity>
@@ -108,21 +112,11 @@ export default class DashboardScreen extends React.Component {
         <View
           style={styles.updateButtonStyle}>
           <TouchableOpacity
-            onPress={ ()=> this.navigateToService('CarInfoScreen') }
+            onPress={ ()=> this.props.navigation.navigate('CarInfoStack') }
             >
           <Image
             source={require('../assets/images/update.png')}
             />
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={ ()=> this.navigateToService('cashwash') }
-            >
-            <View
-              style={styles.scheduleServiceButton}>
-              <Text style={styles.text4}>
-                Schedule Your Service
-              </Text>
-            </View>
           </TouchableOpacity>
         </View>
     </View>

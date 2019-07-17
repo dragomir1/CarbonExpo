@@ -25,6 +25,7 @@ export default class App extends Component {
     this.setState({chosenDate: newDate});
   }
 
+// may need to save this to firebase then call it back up again in the confirmation screen
 
 
   render() {
@@ -40,8 +41,7 @@ export default class App extends Component {
           onChangeText={(text) => this.setState({text})}
           value={this.state.text}
           />
-          <TouchableOpacity
-            onPress={ ()=> this.navigateToService('cashwash')}>
+          <TouchableOpacity>
             <View
               style={styles.bookServiceButton}
               >

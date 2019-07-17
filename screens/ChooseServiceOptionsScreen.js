@@ -12,30 +12,42 @@ export default class ChooseServiceOptionsScreen extends React.Component {
       "serviceType",
       defaultServiceType
     );
-
     this.state = {
       serviceType: serviceType
     };
-    // this.state.serviceType = serviceType;
+
   }
-  // swtich statement to ccle thorugh types
+  // convert to a switch statment
   returnURLHandler = () => {
     if (this.state.serviceType === "windshield") {
       return require("../assets/images/windshield-text-1x.png");
     } else if (this.state.serviceType === "carwash") {
       return require("../assets/images/carwash-text-1x.png");
+    } else if (this.state.serviceType === "engine") {
+      return require("../assets/images/engine-text.png");
     }
   };
   // in classes you dont need a declaration
   windshieldServiceOptions = [
     "Fix cracked windshield",
-    "replaceWindsheild",
-    "cleanWindshield",
-    "replaceWindsheildWipers"
+    "Replace windshield",
+    "Clean windshield",
+    "Replace Windshield Wipers"
   ];
 
-  carWashServiceOptions = ["carwash1", "carwash2", "carwash3", "carwash4"];
-  engineServiceOptions = ["engine1", "engine12", "engine13", "engine14"];
+  carWashServiceOptions = [
+    "Basic Car Wash",
+    "Wash and Wax",
+    "Interior wash and detailing",
+    "Engine cleaning"
+  ];
+
+  engineServiceOptions = [
+    "Oil change",
+    "Fluid top off",
+    "Diagnostics",
+    "Engine optimization"
+  ];
 
   // lives and dies here...this access the memneber variable..dont use state.
   // switch....
@@ -49,7 +61,10 @@ export default class ChooseServiceOptionsScreen extends React.Component {
       options = this.engineServiceOptions;
     }
     return options.map(option => (
-      <TouchableOpacity>
+      <TouchableOpacity
+        
+
+        >
         <View style={styles.scheduleServiceOptions}>
           <Text style={styles.optionsText}>{option}</Text>
         </View>
@@ -58,13 +73,10 @@ export default class ChooseServiceOptionsScreen extends React.Component {
   };
 
   render() {
-    // put image object below. return the URL instead
-
     return (
       <View style={styles.container}>
         <Image source={this.returnURLHandler()} />
         <View style={styles.containerTop}>
-          <Text>{this.state.serviceType}</Text>
           <Text style={styles.serviceHeader}>Let us take of it for you.</Text>
           <Text style={styles.serviceBodyInfo}>
             The service you select comes with your technician
@@ -75,30 +87,6 @@ export default class ChooseServiceOptionsScreen extends React.Component {
     );
   }
 }
-
-//   TODO: Set this to a service
-//   const defaultServiceType = '--default-service-type--fix-me--';
-//   const serviceType = props.navigation.getParam('serviceType', defaultServiceType);
-
-// <View style={styles.container}>
-//   <View style={styles.containerTop}>
-//     <TouchableOpacity>
-//       <EvilIcons
-//         name="chevron-left"
-//         size={32}
-//         onPress={() => props.navigation.pop()}
-//       />
-//     </TouchableOpacity>
-//     <View style={styles.textGreeting}>
-//       {/*add state to this..*/}
-//       <Text style={styles.text}>Hi, John</Text>
-//       <Text style={styles.text1}>Your Car: Toyota Camry, 2011</Text>
-//     </View>
-//   </View>
-//   <View style={styles.container}>
-//     <Text>ChooseServiceOptionsScreen - Type: this.state.serviceType</Text>
-//   </View>
-// </View>
 
 ChooseServiceOptionsScreen.navigationOptions = {
   title: "Service Screen"
@@ -115,7 +103,7 @@ const styles = StyleSheet.create({
   scheduleServiceOptions: {
     backgroundColor: "#f2f2f2",
     borderRadius: 20,
-    marginTop: 10,
+    marginTop: 20,
     width: 300,
     height: 45,
     justifyContent: "center",
@@ -126,7 +114,7 @@ const styles = StyleSheet.create({
     // paddingTop: 25,
     // backgroundColor: '#aaa',
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
   },
   optionsText: {
     // paddingRight: 20,

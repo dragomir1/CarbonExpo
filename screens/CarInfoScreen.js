@@ -167,6 +167,8 @@ export default class CarInfoScreen extends React.Component {
           data={dataCarMake}
           style={styles.dropdown}
           baseColor="#000"
+          onPress={this.nameChangeHandler}
+          value={this.state.carMake}
           />
 
         <Dropdown
@@ -174,6 +176,8 @@ export default class CarInfoScreen extends React.Component {
           data={dataCarModel}
           style={styles.dropdown}
           baseColor="#000"
+          onPress={this.nameChangeHandler}
+          value={this.state.carModel}
           />
 
         <Dropdown
@@ -181,6 +185,8 @@ export default class CarInfoScreen extends React.Component {
           data={dataCarYear}
           style={styles.dropdown}
           baseColor="#000"
+          onPress={this.nameChangeHandler}
+          value={this.state.carYear}
           />
 
         <Dropdown
@@ -188,6 +194,8 @@ export default class CarInfoScreen extends React.Component {
           data={dataCarMilage}
           style={styles.dropdown}
           baseColor="#000"
+          onPress={this.nameChangeHandler}
+          value={this.state.carMilage}
           />
 
         <Dropdown
@@ -195,6 +203,8 @@ export default class CarInfoScreen extends React.Component {
           data={dataCarEngineType}
           style={styles.dropdown}
           baseColor="#000"
+          onPress={this.nameChangeHandler}
+          value={this.state.carEngineType}
           />
         <TouchableOpacity>
           <View style={styles.ccInfo}>

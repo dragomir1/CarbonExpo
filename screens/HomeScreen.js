@@ -26,19 +26,33 @@ export default class HomeScreen extends React.Component {
 
     const { email, password, name } = this.state
     // TODO: Do something with the user's name. We're currently not storing it in Firebase
+
+    firebase.database()
+      .ref('users/')
+      .set({
+        name: name
+      })
+      .then(() => {
+        console.warn("added new user");
+      })
+      .catch(error => {
+        console.warn("User name wasn't added")
+    });
+
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
         console.log("Created user with firebase");
         let user = firebase.auth().currentUser;
-
         user.updateProfile({
           displayName: name
-        }).then(function() {
-          // Update successful.
-        }).catch(function(error) {
-          // An error happened.
+        })
+        .then(function() {
+          console.log("added user name to firebase")
+        })
+        .catch(function(error) {
+          console.warn("user wasn't added")
         });
       })
       .catch(error => this.setState({ errorMessage: error.message }))
