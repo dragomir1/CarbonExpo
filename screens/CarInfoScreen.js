@@ -26,13 +26,13 @@ export default class CarInfoScreen extends React.Component {
     };
   }
 
-  nameChangeHandler = event => {
-    const target = event.target;
-    this.setState({
-      [target.name]: target.value
-    });
-    console.warn(this.state);
-  };
+  // nameChangeHandler = event => {
+  //   const target = event.target;
+  //   this.setState({
+  //     [target.name]: target.value
+  //   });
+  //   console.warn(this.state);
+  // };
 
   submitInfoHandler = () => {
     const { carModel, carYear, carMake, carMilage, carEngineType } = this.state;
@@ -60,6 +60,7 @@ export default class CarInfoScreen extends React.Component {
   };
 
   render() {
+
     let dataCarMake = [
       {
         value: "Toyota"
@@ -207,10 +208,37 @@ export default class CarInfoScreen extends React.Component {
       }
     ];
 
+    let optionModels;
+
+    if (this.state.carMake === "Toyota") {
+      optionModels = (
+        <Dropdown
+          label="Model"
+          data={dataCarModel}
+          containerStyle={styles.dropdown}
+          baseColor="#000"
+          onChangeText={carModel => this.setState({ carModel })}
+          value={this.state.carModel}
+          name="carModel"
+        />
+      );
+    } else if (this.state.carMake === "Honda") {
+      optionModels = (
+        <Dropdown
+          label="Model"
+          data={dataHondaModels}
+          containerStyle={styles.dropdown}
+          baseColor="#000"
+          onChangeText={carModel => this.setState({ carModel })}
+          value={this.state.carModel}
+          name="carModel"
+        />
+      );
+    }
+
     return (
       <View style={styles.container}>
         <Text style={styles.carHeader}>
-          {" "}
           Hi {this.state.userName}, Tell us about your car
         </Text>
         <Text style={styles.carBodyInfo}>
@@ -225,15 +253,7 @@ export default class CarInfoScreen extends React.Component {
           Value={this.state.carMake}
           name="carMake"
         />
-        <Dropdown
-          label="Model"
-          data={dataCarModel}
-          containerStyle={styles.dropdown}
-          baseColor="#000"
-          onChangeText={carModel => this.setState({ carModel })}
-          value={this.state.carModel}
-          name="carModel"
-        />
+        {optionModels}
         <Dropdown
           label="Year"
           data={dataCarYear}
@@ -276,7 +296,6 @@ export default class CarInfoScreen extends React.Component {
     );
   }
 }
-
 
 CarInfoScreen.navigationOptions = {
   title: "Car Info"
