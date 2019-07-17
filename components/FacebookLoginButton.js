@@ -21,7 +21,8 @@ async function logIn() {
 
       console.warn('FB login success');
       // Sign in with credential from the Facebook user.
-      firebase.auth().signInWithCredential(credential)
+      firebase.auth()
+        .signInWithCredential(credential)
         .then(userCredential => {
           console.warn('firebase sigIn success');
 
@@ -31,17 +32,20 @@ async function logIn() {
           //
           // }
           // TODO: Handle if user is new
-
-          // TODO: Handle if user is existing
+          // const response = await fetch(`https://graph.facebook.com/me?access_token=${token}`);
+          // const name = (await response.json()).name;
+          // // TODO: Handle if user is existing
+          // let user = firebase.auth().currentUser
+          // user.updateProfile({
+          //   displayName: name
+          // })
         })
         .catch((error) => {
           console.warn(error);
         // Handle Errors here.
       });
 
-      // Get the user's name using Facebook's Graph API
-      const response = await fetch(`https://graph.facebook.com/me?access_token=${token}`);
-      const name = (await response.json()).name;
+
 
 
     } if (type === 'cancel') {

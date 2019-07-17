@@ -4,14 +4,19 @@ import * as firebase from 'firebase';
 import { Dropdown } from 'react-native-material-dropdown';
 import { Font } from 'expo';
 
+
 export default class CarInfoScreen extends React.Component {
 
-  state = {
-    carModel: "",
-    carYear: "",
-    carMake: "",
-    carMilage: "",
-    carEngineType: ""
+  constructor(props) {
+    super(props);
+    this.state = {
+      carModel: "",
+      carYear: "",
+      carMake: "",
+      carMilage: "",
+      carEngineType: "",
+      userName: firebase.auth().currentUser.displayName
+    }
   }
 
   nameChangeHandler = (value) => {
@@ -57,7 +62,7 @@ export default class CarInfoScreen extends React.Component {
 
   render() {
 
-    let dataCarMake =[{
+    let dataCarMake = [{
       value: 'Toyota'
     }, {
       value: 'Honda'
@@ -112,6 +117,7 @@ export default class CarInfoScreen extends React.Component {
     }, {
       value: '> 200,000'
     }];
+
     let dataCarEngineType =[{
       value: "V6"
     }, {
@@ -154,13 +160,14 @@ export default class CarInfoScreen extends React.Component {
       value: "Inline 5-cylinder"
     }];
 
+
   // if(this.state.carMake === "Toyota") {
   // display Toyota's carModels...else if this.state.carMake === 'Honda'
   // display Honda's carModels.
 
     return (
       <View style={styles.container}>
-        <Text style={styles.carHeader}> Tell us about your car</Text>
+        <Text style={styles.carHeader}> Hi, {this.state.userName}, Tell us about your car</Text>
         <Text style={styles.carBodyInfo}>Before we can connect you with our technicians, We can better assist in situations by knowing these few facts about your car.</Text>
         <Dropdown
           label="Make"

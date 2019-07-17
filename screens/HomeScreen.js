@@ -14,37 +14,41 @@ import GoogleLoginButton from '../components/GoogleLoginButton';
 
 
 export default class HomeScreen extends React.Component {
-  state = {
-    name: '',
-    email: '',
-    password: '',
-    errorMessage: null
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      email: '',
+      password: '',
+      errorMessage: null
+    }
   }
+
 
   handleSignUp = () => {
     // TODO: Validate registration info
 
     const { email, password, name } = this.state
     // TODO: Do something with the user's name. We're currently not storing it in Firebase
-
-    firebase.database()
-      .ref('users/')
-      .set({
-        name: name
-      })
-      .then(() => {
-        console.warn("added new user");
-      })
-      .catch(error => {
-        console.warn("User name wasn't added")
-    });
+    // let user = firebase.auth().currentUser
+    // firebase.database()
+    //   .ref('users/' + user.uid)
+    //   .set({
+    //     name: name
+    //   })
+    //   .then(() => {
+    //     console.warn("added new user");
+    //   })
+    //   .catch(error => {
+    //     console.warn("User name wasn't added")
+    // });
 
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
         console.log("Created user with firebase");
-        let user = firebase.auth().currentUser;
+        let user = firebase.auth().currentUser
         user.updateProfile({
           displayName: name
         })
@@ -67,23 +71,7 @@ export default class HomeScreen extends React.Component {
       name: value
     });
   };
-//
-  // goToYourCarInfoPage = () => {
-  //   Navigation.push(this.props.componentId, {
-  //     component: {
-  //       name: 'navigation.playground.AboutYourCarInfoScreen',
-  //     },
-  //
-  //   });
-  // }
-  // goToLoginHandler = () => {
-  //   Navigation.push(this.props.componentId, {
-  //     component: {
-  //       name: 'navigation.playground.LoginScreen',
-  //     },
-  //
-  //   });
-  // }
+
 
   render() {
     return (
