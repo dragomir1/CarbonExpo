@@ -13,34 +13,51 @@ export default class DashboardScreen extends React.Component {
         carMake: "",
         carModel: "",
         carYear: "",
-        timePassed: false,
-        isLoaded: false,
+        serviceAlert: false,
       };
+
+      let user = firebase.auth().currentUser;
+      let userId = user.uid;
+      console.warn(userId);
+      firebase
+        .database()
+        .ref("userCarInfo/" + userId)
+        .on('value', snapshot => {
+          console.warn(snapshot.val())
+          this.setState({
+            carModel: snapshot.val().carModel,
+            carYear: snapshot.val().carYear
+          })
+        })
+//will one be called one here in the constructor. constructor is the place if initialization.
+        this.AlertBoxTimeoutHandler();
   }
-
-// when the screen loads then the setTimeout funcion runs.
-
 
   navigateToService(serviceType) {
     this.props.navigation.push('ChooseService', { serviceType: serviceType });
   }
 
-  // we need to get info from firebase to add in state.
+// within a class scope const/let are not valid
+  alertBox = (
+    <View
+       style={styles.scheduleServiceAlert}>
+       <Text style={styles.text4}>
+         You are due for an oil change.  Click the icon to schedule service.
+       </Text>
+     </View>)
 
- alertBoxHandler = () => {
-   alertBox = setTimeout(() => {
-       <View
-         style={styles.scheduleServiceAlert}>
-         <Text style={styles.text4}>
-           You are due for an oil change.  Click the icon to schedule service.
-         </Text>
-       </View>
-   }, 3000);
- return alertBox;
- }
 
+   AlertBoxTimeoutHandler = () => {
+        setTimeout(() => {
+          this.setState({
+            serviceAlert: true
+          })
+     }, 5000);
+   }
 
   render() {
+// if service alert true then render
+
     return (
     <View style={styles.containerMain}>
         <View style={styles.containerTop}>
@@ -54,10 +71,10 @@ export default class DashboardScreen extends React.Component {
           <View style={styles.textGreeting}>
           {/*add state to this..*/}
              <Text style={styles.text}>Hi {this.state.userName},</Text>
-             <Text style={styles.text1}>Your Car: {this.props.carModel}, {this.props.carYear}</Text>
+             <Text style={styles.text1}>Your Car: {this.state.carModel}, {this.state.carYear}</Text>
           </View>
         </View>
-          <Text>{this.alertBoxHandler()}</Text>
+        {this.state.serviceAlert && this.alertBox}
       <View style={styles.containerMain1}>
           <View>
             <TouchableOpacity
@@ -195,8 +212,8 @@ const styles = StyleSheet.create({
     backgroundColor: "#254ade",
     borderRadius: 20,
     marginTop: 10,
-    width: 175,
-    height: 25,
+    width: 275,
+    height: 35,
     justifyContent: 'center',
     alignItems: 'center',
   },
