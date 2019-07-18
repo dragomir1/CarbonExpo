@@ -17,6 +17,10 @@ export default class ChooseServiceOptionsScreen extends React.Component {
     };
 
   }
+
+  navigateToAppontment(apptType) {
+    this.props.navigation.push('ChooseService', { apptType: apptType });
+  }
   // convert to a switch statment
   returnURLHandler = () => {
     if (this.state.serviceType === "windshield") {

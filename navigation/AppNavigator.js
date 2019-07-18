@@ -6,7 +6,7 @@ import AuthLoadingScreen from '../screens/AuthLoadingScreen';
 import LoginScreen from '../screens/LoginScreen';
 import CarInfoScreen from '../screens/CarInfoScreen';
 import CreditCardInfoScreen from '../screens/CreditCardInfoScreen';
-import AppointmentScreen from '../screens/AppointmentScreen'
+import AppointmentScreen from '../screens/AppointmentScreen';
 import AppStack from './AppStack';
 
 const AuthStack = createStackNavigator({

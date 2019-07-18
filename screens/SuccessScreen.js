@@ -16,7 +16,6 @@ export default class SuccessScreen extends Component {
   }
 
 
-
   render() {
     return (
       <View style={styles.container}>
@@ -25,7 +24,7 @@ export default class SuccessScreen extends Component {
           <Text style={styles.textheader}>
             Sweet Success!
           </Text>
-          <Text style={styles.textBody}>You're appointment has been booked.  You'll recieve a confirmation text and email with your order.
+          <Text style={styles.textBody}>You're appointment has been booked.  You will recieve a confirmation text and email with your order.
           </Text>
           <Image
             source={require('../assets/images/thumbsup-1x.png')}

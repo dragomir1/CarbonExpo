@@ -34,7 +34,7 @@ export default class DashboardScreen extends React.Component {
   }
 
   navigateToService(serviceType) {
-    this.props.navigation.push('ChooseService', { serviceType: serviceType });
+    this.props.navigation.push('Choose', { serviceType: serviceType });
   }
 
 // within a class scope const/let are not valid
