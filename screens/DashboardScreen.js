@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Text, Image,TouchableOpacity, ActivityIndicator, } from 'react-native';
+import { View, StyleSheet, Text, Image,TouchableOpacity} from 'react-native';
 import { Font } from 'expo';
 import { EvilIcons } from '@expo/vector-icons';
 import * as firebase from 'firebase';
@@ -42,9 +42,13 @@ export default class DashboardScreen extends React.Component {
     <View
        style={styles.scheduleServiceAlert}>
        <Text style={styles.text4}>
-         You are due for an oil change.  Click the icon to schedule service.
+         You are due for an oil change.
        </Text>
-     </View>)
+       <Text style={styles.text4}>
+         Click the icon to schedule service.
+       </Text>
+     </View>
+   )
 
 
    AlertBoxTimeoutHandler = () => {
@@ -52,7 +56,7 @@ export default class DashboardScreen extends React.Component {
           this.setState({
             serviceAlert: true
           })
-     }, 5000);
+     }, 7000);
    }
 
   render() {
@@ -74,7 +78,9 @@ export default class DashboardScreen extends React.Component {
              <Text style={styles.text1}>Your Car: {this.state.carModel}, {this.state.carYear}</Text>
           </View>
         </View>
-        {this.state.serviceAlert && this.alertBox}
+          <View style={styles.alertView}>
+            {this.state.serviceAlert && this.alertBox}
+          </View>
       <View style={styles.containerMain1}>
           <View>
             <TouchableOpacity
@@ -161,6 +167,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     // flexWrap: 'wrap'
   },
+  alertView: {
+    // flex: 1,
+    marginTop: 10,
+    justifyContent: 'center',
+    flexDirection: 'row',
+  },
   text: {
     // paddingRight: 20,
     // marginTop:10,
@@ -190,7 +202,7 @@ const styles = StyleSheet.create({
   text4: {
     // paddingRight: 20,
     // marginTop:10,
-    fontSize: 12,
+    fontSize: 14,
     fontFamily: 'open-sans-regular',
     color: '#fff',
     textAlign: 'center',
@@ -201,10 +213,12 @@ const styles = StyleSheet.create({
   },
   scheduleServiceButton: {
     backgroundColor: "#254ade",
-    borderRadius: 20,
-    marginTop: 10,
-    width: 175,
-    height: 25,
+    borderRadius: 5,
+    marginTop: 20,
+    width: 160,
+    paddingTop: 5,
+    paddingBottom: 15,
+    height: 45,
     justifyContent: 'center',
     alignItems: 'center',
   },

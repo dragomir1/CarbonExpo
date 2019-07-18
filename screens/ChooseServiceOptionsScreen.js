@@ -62,8 +62,7 @@ export default class ChooseServiceOptionsScreen extends React.Component {
     }
     return options.map(option => (
       <TouchableOpacity
-        
-
+        onPress={() => this.props.navigation.navigate('AppointmentScreen')}
         >
         <View style={styles.scheduleServiceOptions}>
           <Text style={styles.optionsText}>{option}</Text>

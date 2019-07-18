@@ -72,17 +72,53 @@ export default class CarInfoScreen extends React.Component {
         value: "Ford"
       },
       {
-        value: "Tesla"
-      },
-      {
-        value: "GMC"
-      },
-      {
         value: "BMW"
       }
     ];
 
-    let dataCarModel = [
+    let dataBMWModels = [
+      {
+        value: "M3"
+      },
+      {
+        value: "M5"
+      },
+      {
+        value: "X5"
+      },
+      {
+        value: "X6"
+      },
+      {
+        value: "X3"
+      },
+      {
+        value: "Z4"
+      }
+    ];
+
+    let dataFordModels = [
+      {
+        value: "Mustang"
+      },
+      {
+        value: "Focus"
+      },
+      {
+        value: "Fusion"
+      },
+      {
+        value: "Escape"
+      },
+      {
+        value: "F-150"
+      },
+      {
+        value: "Fiesta"
+      }
+    ];
+
+    let dataToyotaModels = [
       {
         value: "Camry"
       },
@@ -209,12 +245,12 @@ export default class CarInfoScreen extends React.Component {
     ];
 
     let optionModels;
-
+// switch case
     if (this.state.carMake === "Toyota") {
       optionModels = (
         <Dropdown
           label="Model"
-          data={dataCarModel}
+          data={dataToyotaModels}
           containerStyle={styles.dropdown}
           baseColor="#000"
           onChangeText={carModel => this.setState({ carModel })}
@@ -234,12 +270,42 @@ export default class CarInfoScreen extends React.Component {
           name="carModel"
         />
       );
+    } else if (this.state.carMake === "Ford") {
+      optionModels = (
+        <Dropdown
+          label="Model"
+          data={dataFordModels}
+          containerStyle={styles.dropdown}
+          baseColor="#000"
+          onChangeText={carModel => this.setState({ carModel })}
+          value={this.state.carModel}
+          name="carModel"
+        />
+      );
+    } else if (this.state.carMake === "BMW") {
+      optionModels = (
+        <Dropdown
+          label="Model"
+          data={dataBMWModels}
+          containerStyle={styles.dropdown}
+          baseColor="#000"
+          onChangeText={carModel => this.setState({ carModel })}
+          value={this.state.carModel}
+          name="carModel"
+        />
+      );
     }
+
+
     let dataOption;
     if (this.state.carMake === "Honda") {
       dataOption = dataHondaModels
     } else if (this.state.carMake === "Toyota") {
-      dataOption = dataCarModel
+      dataOption = dataToyotaModels
+    } else if (this.state.carMake === "Ford") {
+      dataOption = dataFordModels
+    } else if (this.state.carMake === "BMW") {
+      dataOption = dataBMWModels
     }
 
 
