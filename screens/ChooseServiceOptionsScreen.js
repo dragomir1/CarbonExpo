@@ -74,6 +74,15 @@ export default class ChooseServiceOptionsScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <View style={styles.backButton}>
+          <TouchableOpacity>
+            <EvilIcons
+              name="chevron-left"
+              size={32}
+              onPress={() => this.props.navigation.pop()}
+            />
+          </TouchableOpacity>
+        </View>
         <Image source={this.returnURLHandler()} />
         <View style={styles.containerTop}>
           <Text style={styles.serviceHeader}>Let us take of it for you.</Text>
@@ -98,6 +107,9 @@ const styles = StyleSheet.create({
     // backgroundColor: '#aaa',
     justifyContent: "center",
     alignItems: "center"
+  },
+  backButton: {
+    flexDirection:"row",
   },
   scheduleServiceOptions: {
     backgroundColor: "#f2f2f2",
