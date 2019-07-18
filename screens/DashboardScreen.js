@@ -54,7 +54,7 @@ export default class DashboardScreen extends React.Component {
           <View style={styles.textGreeting}>
           {/*add state to this..*/}
              <Text style={styles.text}>Hi {this.state.userName},</Text>
-             <Text style={styles.text1}>Your Car: {this.props.name}, {this.props.carYear}</Text>
+             <Text style={styles.text1}>Your Car: {this.props.carModel}, {this.props.carYear}</Text>
           </View>
         </View>
           <Text>{this.alertBoxHandler()}</Text>

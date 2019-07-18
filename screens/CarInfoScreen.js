@@ -235,6 +235,13 @@ export default class CarInfoScreen extends React.Component {
         />
       );
     }
+    let dataOption;
+    if (this.state.carMake === "Honda") {
+      dataOption = dataHondaModels
+    } else if (this.state.carMake === "Toyota") {
+      dataOption = dataCarModel
+    }
+
 
     return (
       <View style={styles.container}>
@@ -242,7 +249,7 @@ export default class CarInfoScreen extends React.Component {
           Hi {this.state.userName}, Tell us about your car
         </Text>
         <Text style={styles.carBodyInfo}>
-          Before we can connect you with our technicians, We can better assist
+          Before we can connect you with our technicians, We can better assist you in situations by knowing these few facts about your car.
         </Text>
         <Dropdown
           label="Make"
@@ -253,7 +260,15 @@ export default class CarInfoScreen extends React.Component {
           Value={this.state.carMake}
           name="carMake"
         />
-        {optionModels}
+        <Dropdown
+          label="Model"
+          data={dataOption}
+          containerStyle={styles.dropdown}
+          baseColor="#000"
+          onChangeText={carModel => this.setState({ carModel })}
+          value={this.state.carModel}
+          name="carModel"
+        />
         <Dropdown
           label="Year"
           data={dataCarYear}
@@ -281,7 +296,9 @@ export default class CarInfoScreen extends React.Component {
           value={this.state.carEngineType}
           name="carEngineType"
         />
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate('CreditCardInfoScreen')}
+          >
           <View style={styles.ccInfo}>
             <Text style={styles.ccInfoText}>Add Credit Card Information</Text>
           </View>
@@ -316,12 +333,12 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 20
+    marginTop: 30
   },
   ccInfoText: {
     // paddingT: 30,
     color: "#fff",
-    fontSize: 12
+    fontSize: 12,
     // justifyContent: 'center',
     // alignItems: 'center'
   },
