@@ -32,17 +32,21 @@ export default class AppointmentScreen extends React.Component {
 
     this.state = {
       isDateTimePickerVisible: false,
-      textarea: "",
+      customerRequest: "",
       date: "",
-      time: "",
       serviceType: serviceType,
       apptType: apptType
     };
   }
 
-  // we need state from ChooseServiceOptionsScreen for serviceType.
+  navigateToApptRequest() {
+    console.warn('hi')
+    this.props.navigation.push("ReviewApptScreen", {
+      date: this.state.date,
+      apptType: this.state.apptType
+    });
+  }
 
-  //need to map through the array of selections and render the user selection.  we need to select the time date and render that.
 
 // render the info in the confirmation screen...set up "here are your details" screen? prior to confirming.
 
@@ -60,16 +64,22 @@ returnURLHandler = () => {
     this.setState({ isDateTimePickerVisible: true });
   };
 
+
+
   hideDateTimePicker = () => {
     this.setState({ isDateTimePickerVisible: false });
   };
 
   handleDatePicked = date => {
     console.log("A date has been picked: ", date);
+    this.setState({
+      date: date
+    })
     this.hideDateTimePicker();
   };
 
   render() {
+
     return (
       <View style={styles.container}>
         <View style={styles.backButton}>
@@ -104,6 +114,7 @@ returnURLHandler = () => {
           is24Hour={false}
         />
       <View style={{backgroundColor: this.state.textarea}}>
+        <Text>{ this.state.date && this.state.date.toLocaleString()}</Text>
         <TextInput
           placeholder="phone number"
           />
@@ -112,12 +123,12 @@ returnURLHandler = () => {
         editable = {true}
         multiline = {true}
         numberOfLines = {4}
-        onChangeText={(textarea) => this.setState({textarea})}
+        onChangeText={(customerRequest) => this.setState({customerRequest})}
         value={this.state.textarea}
         />
     </View>
     <TouchableOpacity
-      onPress={() => this.props.navigation.navigate('App')}
+      onPress={ () => this.navigateToApptRequest()}
       style={styles.buttonStyling}
       >
     <Image source={require('../assets/images/book-service.png')} />

@@ -7,6 +7,8 @@ import LoginScreen from '../screens/LoginScreen';
 import CarInfoScreen from '../screens/CarInfoScreen';
 import CreditCardInfoScreen from '../screens/CreditCardInfoScreen';
 import AppointmentScreen from '../screens/AppointmentScreen';
+import ReviewApptScreen from '../screens/ReviewApptScreen';
+import SuccessScreen from '../screens/SuccessScreen';
 import AppStack from './AppStack';
 
 const AuthStack = createStackNavigator({
@@ -26,7 +28,9 @@ export default createAppContainer(createSwitchNavigator(
     CarInfoStack: CarInfoScreen,
     // added this for navigation...not sure if it's in right place
     CreditCardInfoScreen: CreditCardInfoScreen,
-    AppointmentScreen: AppointmentScreen
+    AppointmentScreen: AppointmentScreen,
+    ReviewApptScreen: ReviewApptScreen,
+    SuccessScreen: SuccessScreen
 
   },
   {

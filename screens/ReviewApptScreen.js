@@ -1,15 +1,31 @@
 import React, {Component} from 'react';
 import {View, StyleSheet, Text, Image, TouchableOpacity} from 'react-native';
 import { Font } from 'expo';
-import { EvilIcons } from "@expo/vector-icons";
+import { Entypo } from '@expo/vector-icons';
 
 export default class SuccessScreen extends Component {
 
 
   constructor(props) {
     super(props);
-    this.state = {
 
+    const defaultApptType = "--default-appt-type--fix-me--";
+    const apptType = this.props.navigation.getParam(
+      "apptType",
+      defaultApptType
+    );
+
+    const defaultdateType = "--default-date-type--fix-me--";
+    const date = this.props.navigation.getParam(
+      "date",
+      defaultdateType
+    );
+
+
+    this.state = {
+      customerRequest: "",
+      date: date,
+      apptType: apptType
     };
 
   }
@@ -18,32 +34,30 @@ export default class SuccessScreen extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity>
-          <EvilIcons
-            name="chevron-left"
-            size={32}
-            onPress={() => this.props.navigation.pop()}
-          />
-        </TouchableOpacity>
 
         <View style={styles.blueBox}>
           <Text style={styles.textheader}>
-            Sweet Success!
+            Please Review Your Appointment!
           </Text>
-          <Text style={styles.textBody}>Please review your appointment for this.state.  You will recieve a confirmation text and email with your confirmation.
-          </Text>
-          <Image
-            source={require('../assets/images/thumbsup-1x.png')}
+          <Entypo
             style={styles.images}
-            />
+            name="magnifying-glass" size={45}
+          />
             <Text style={styles.textheader1}>
-              this.state.date at this.state.time
+              {this.state.date.toLocaleString()} at {this.state.apptType}
             </Text>
             <Text style={styles.textBody1}>
               Your technician will call you if more information is required.
             </Text>
 
         </View>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate('SuccessScreen')}
+        >
+          <View style={styles.backToDashboardButton}>
+            <Text style={styles.text4}>confirm</Text>
+          </View>
+        </TouchableOpacity>
 
 
       <TouchableOpacity
