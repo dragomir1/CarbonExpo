@@ -8,8 +8,6 @@ export default class SuccessScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      time: false,
-      date: false,
 
     };
 
@@ -24,7 +22,7 @@ export default class SuccessScreen extends Component {
           <Text style={styles.textheader}>
             Sweet Success!
           </Text>
-          <Text style={styles.textBody}>You're appointment has been booked.  You will recieve a confirmation text and email with your order.
+          <Text style={styles.textBody}>Please review your appointment for this.state.  You will recieve a confirmation text and email with your confirmation.
           </Text>
           <Image
             source={require('../assets/images/thumbsup-1x.png')}

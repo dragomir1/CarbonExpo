@@ -34,7 +34,7 @@ export default class DashboardScreen extends React.Component {
   }
 
   navigateToService(serviceType) {
-    this.props.navigation.push('Choose', { serviceType: serviceType });
+    this.props.navigation.push('ChooseService', { serviceType: serviceType });
   }
 
 // within a class scope const/let are not valid
@@ -115,7 +115,6 @@ export default class DashboardScreen extends React.Component {
                   />
               </TouchableOpacity>
               <TouchableOpacity
-                onPress={ ()=> this.navigateToService('gas') }
                 >
                 <Image
                   source={require('../assets/images/gas-text-1x.png')}
@@ -123,7 +122,6 @@ export default class DashboardScreen extends React.Component {
                   />
               </TouchableOpacity>
               <TouchableOpacity
-                onPress={ ()=> this.navigateToService('search') }
                 >
                 <Image
                   source={require('../assets/images/search-text-1x.png')}

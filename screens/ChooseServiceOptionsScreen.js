@@ -12,15 +12,22 @@ export default class ChooseServiceOptionsScreen extends React.Component {
       "serviceType",
       defaultServiceType
     );
+
     this.state = {
       serviceType: serviceType
     };
-
   }
 
-  navigateToAppontment(apptType) {
-    this.props.navigation.push('ChooseService', { apptType: apptType });
+  navigateToAppointment(apptType) {
+    this.props.navigation.push("AppointmentScreen", {
+      apptType: apptType,
+      serviceType: this.state.serviceType
+    });
   }
+  // navigateToService(serviceType) {
+  //   this.props.navigation.push('ChooseService', { serviceType: serviceType });
+  // }
+
   // convert to a switch statment
   returnURLHandler = () => {
     if (this.state.serviceType === "windshield") {
@@ -64,12 +71,13 @@ export default class ChooseServiceOptionsScreen extends React.Component {
     } else if (this.state.serviceType === "engine") {
       options = this.engineServiceOptions;
     }
-    return options.map(option => (
+    return options.map((option, i) => (
       <TouchableOpacity
-        onPress={() => this.props.navigation.navigate('AppointmentScreen')}
-        >
+        onPress={ () => this.navigateToAppointment(option) }>
         <View style={styles.scheduleServiceOptions}>
-          <Text style={styles.optionsText}>{option}</Text>
+          <Text key={i} style={styles.optionsText}>
+            {option}
+          </Text>
         </View>
       </TouchableOpacity>
     ));
@@ -113,7 +121,7 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   backButton: {
-    flexDirection:"row",
+    flexDirection: "row"
   },
   scheduleServiceOptions: {
     backgroundColor: "#f2f2f2",
@@ -129,7 +137,7 @@ const styles = StyleSheet.create({
     // paddingTop: 25,
     // backgroundColor: '#aaa',
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   optionsText: {
     // paddingRight: 20,

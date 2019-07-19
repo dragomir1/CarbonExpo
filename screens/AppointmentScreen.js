@@ -11,22 +11,50 @@ from 'react-native';
 import * as SMS from 'expo-sms';
 import { Font } from "expo";
 import DateTimePicker from "react-native-modal-datetime-picker";
+import { EvilIcons } from "@expo/vector-icons";
+
 
 export default class AppointmentScreen extends React.Component {
   constructor(props) {
     super(props);
 
-    // const defaultApptType = "--default-service-type--fix-me--";
-    // const apptType = this.props.navigation.getParam(
-    //   "apptType",
-    //   defaultApptType
-    // );
+    const defaultServiceType = "--default-service-type--fix-me--";
+    const serviceType = this.props.navigation.getParam(
+      "serviceType",
+      defaultServiceType
+    );
+
+    const defaultApptType = "--default-appt-type--fix-me--";
+    const apptType = this.props.navigation.getParam(
+      "apptType",
+      defaultApptType
+    );
+
     this.state = {
       isDateTimePickerVisible: false,
       textarea: "",
-      // apptType: apptType
+      date: "",
+      time: "",
+      serviceType: serviceType,
+      apptType: apptType
     };
   }
+
+  // we need state from ChooseServiceOptionsScreen for serviceType.
+
+  //need to map through the array of selections and render the user selection.  we need to select the time date and render that.
+
+// render the info in the confirmation screen...set up "here are your details" screen? prior to confirming.
+
+returnURLHandler = () => {
+  if (this.state.serviceType === "windshield") {
+    return require("../assets/images/windshield-text-1x.png");
+  } else if (this.state.serviceType === "carwash") {
+    return require("../assets/images/carwash-text-1x.png");
+  } else if (this.state.serviceType === "engine") {
+    return require("../assets/images/engine-text.png");
+  }
+};
 
   showDateTimePicker = () => {
     this.setState({ isDateTimePickerVisible: true });
@@ -44,24 +72,43 @@ export default class AppointmentScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+        <View style={styles.backButton}>
+          <TouchableOpacity>
+            <EvilIcons
+              name="chevron-left"
+              size={32}
+              onPress={() => this.props.navigation.pop()}
+            />
+          </TouchableOpacity>
+        </View>
+        <Image source={this.returnURLHandler()} />
         <View style={styles.headerContainer}>
-          <Text style={styles.appointmentHeader}>{this.state.apptType} Appointment.</Text>
+          <Text style={styles.appointmentHeader}>
+            {this.state.apptType}
+          </Text>
+          <Text style={styles.appointmentHeader}>Appointment.</Text>
           <Text style={styles.appointmentBodyInfo}>
-            Tell us what day and time works best for you.  Add additional information if necessary.
+            Tell us what day and time works best for you.  Add additional information below if necessary.
           </Text>
         </View>
         <Button
-          title="Show DatePicker"
+          style={styles.dateButton}
+          title="Pick a date and time"
           onPress={this.showDateTimePicker} />
         <DateTimePicker
           isVisible={this.state.isDateTimePickerVisible}
           onConfirm={this.handleDatePicked}
           onCancel={this.hideDateTimePicker}
+          timePickerModeAndroid='clock'
+          mode="datetime"
+          is24Hour={false}
         />
       <View style={{backgroundColor: this.state.textarea}}>
         <TextInput
-        style={styles.test}
-        placeholder="Additional information"
+          placeholder="phone number"
+          />
+        <TextInput
+        style={styles.textInputSytling}
         editable = {true}
         multiline = {true}
         numberOfLines = {4}
@@ -91,7 +138,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  test: {
+  dateButton: {
+    marginTop: 15
+  },
+  textInputSytling: {
     paddingLeft: 5,
     marginTop: 15,
     borderColor: '#f3f3f3',
@@ -99,15 +149,12 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     width:250,
     height: 200,
-    // justifyContent: 'center',
-    // textAlign: 'center',
-    flexDirection: 'column',
-    alignContent: 'center',
-    alignItems: "center"
-
   },
   buttonStyling: {
     marginTop: 20,
+  },
+  backButton: {
+    flexDirection:"row",
   },
   headerContainer: {
     justifyContent: "center",
