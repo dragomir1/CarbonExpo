@@ -3,11 +3,25 @@ import { View, StyleSheet, Text, Image,TouchableOpacity} from 'react-native';
 import { Font } from 'expo';
 import { EvilIcons } from '@expo/vector-icons';
 import * as firebase from 'firebase';
+import { Notifications } from 'expo';
+import * as Permissions from 'expo-permissions';
 
 
 export default class DashboardScreen extends React.Component {
   constructor(props) {
     super(props);
+
+    Notifications.scheduleLocalNotificationAsync(
+      {
+        title: "curls for the girls",
+        body: " I pump iron to pump girls"
+      },
+      {
+        time: (new Date()).getTime() + 1000,
+      },
+)
+
+
     this.state = {
         userName: firebase.auth().currentUser.displayName,
         carMake: "",

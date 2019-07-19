@@ -35,6 +35,7 @@ export default class AppointmentScreen extends React.Component {
       customerRequest: "",
       date: "",
       serviceType: serviceType,
+      phoneNumber: "",
       apptType: apptType
     };
   }
@@ -43,7 +44,8 @@ export default class AppointmentScreen extends React.Component {
     console.warn('hi')
     this.props.navigation.push("ReviewApptScreen", {
       date: this.state.date,
-      apptType: this.state.apptType
+      apptType: this.state.apptType,
+      phoneNumber: this.state.phoneNumber
     });
   }
 
@@ -117,6 +119,8 @@ returnURLHandler = () => {
         <Text>{ this.state.date && this.state.date.toLocaleString()}</Text>
         <TextInput
           placeholder="phone number"
+          onChangeText={(phoneNumber) => this.setState({phoneNumber})}
+          value={this.state.phoneNumber}
           />
         <TextInput
         style={styles.textInputSytling}
