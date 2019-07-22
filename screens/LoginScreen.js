@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   StyleSheet,
   Text,
@@ -6,36 +6,36 @@ import {
   View,
   Image,
   TouchableOpacity
-} from 'react-native';
-import * as firebase from 'firebase';
-import FacebookLoginButton from '../components/FacebookLoginButton';
-import GoogleLoginButton from '../components/GoogleLoginButton';
+} from "react-native";
+import * as firebase from "firebase";
+import FacebookLoginButton from "../components/FacebookLoginButton";
+import GoogleLoginButton from "../components/GoogleLoginButton";
 
 export default class LoginScreen extends React.Component {
   state = {
-    email: '',
-    password: '',
-    errorMessage: null }
+    email: "",
+    password: "",
+    errorMessage: null
+  };
 
   handleLogin = () => {
-    const { email, password } = this.state
+    const { email, password } = this.state;
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .catch(error => this.setState({ errorMessage: error.message }))
-  }
+      .catch(error => this.setState({ errorMessage: error.message }));
+  };
 
   render() {
     return (
       <View style={styles.container}>
         <Image
           style={styles.imageStyle}
-          source={require('../assets/images/splashsmall.png')}
+          source={require("../assets/images/splashsmall.png")}
         />
-        {this.state.errorMessage &&
-          <Text style={{ color: 'red' }}>
-            {this.state.errorMessage}
-          </Text>}
+        {this.state.errorMessage && (
+          <Text style={{ color: "red" }}>{this.state.errorMessage}</Text>
+        )}
         <TextInput
           style={styles.textInput}
           autoCapitalize="none"
@@ -51,45 +51,45 @@ export default class LoginScreen extends React.Component {
           onChangeText={password => this.setState({ password })}
           value={this.state.password}
         />
-        <TouchableOpacity
-          onPress={this.handleLogin}>
+        <TouchableOpacity onPress={this.handleLogin}>
           <Image
-            source={require('../assets/images/login.png')}
+            source={require("../assets/images/login.png")}
             style={styles.loginStyling}
-            />
+          />
         </TouchableOpacity>
 
-        <FacebookLoginButton/>
+        <FacebookLoginButton />
         <GoogleLoginButton />
-          <View style={styles.footerContainer}>
-          <Text style={styles.donthaveaccttxt}>Don't have an account?
-          </Text>
+        <View style={styles.footerContainer}>
+          <Text style={styles.donthaveaccttxt}>Don't have an account?</Text>
           <TouchableOpacity>
             <Text
               style={styles.signupStyle}
-              onPress={() => this.props.navigation.goBack()}>Sign Up
+              onPress={() => this.props.navigation.goBack()}
+            >
+              Sign Up
             </Text>
           </TouchableOpacity>
         </View>
       </View>
-    )
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center"
   },
   textInput: {
     height: 40,
     width: 300,
-    borderColor: 'lightgray',
+    borderColor: "lightgray",
     borderWidth: 1,
     marginTop: 8,
-    textAlign: 'center',
-    borderRadius: 20,
+    textAlign: "center",
+    borderRadius: 20
   },
   facebookStyling: {
     marginTop: 12,
@@ -114,8 +114,8 @@ const styles = StyleSheet.create({
   },
   footerContainer: {
     // flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginTop: 20
   },
   signupStyle: {
@@ -124,4 +124,4 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     color: "gray"
   }
-})
+});

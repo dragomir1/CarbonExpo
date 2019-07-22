@@ -72,8 +72,7 @@ export default class ChooseServiceOptionsScreen extends React.Component {
       options = this.engineServiceOptions;
     }
     return options.map((option, i) => (
-      <TouchableOpacity
-        onPress={ () => this.navigateToAppointment(option) }>
+      <TouchableOpacity onPress={() => this.navigateToAppointment(option)}>
         <View style={styles.scheduleServiceOptions}>
           <Text key={i} style={styles.optionsText}>
             {option}
@@ -86,15 +85,6 @@ export default class ChooseServiceOptionsScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.backButton}>
-          <TouchableOpacity>
-            <EvilIcons
-              name="chevron-left"
-              size={32}
-              onPress={() => this.props.navigation.pop()}
-            />
-          </TouchableOpacity>
-        </View>
         <Image source={this.returnURLHandler()} />
         <View style={styles.containerTop}>
           <Text style={styles.serviceHeader}>Let us take of it for you.</Text>
@@ -103,6 +93,11 @@ export default class ChooseServiceOptionsScreen extends React.Component {
           </Text>
           {this.serviceOptionsHandler()}
         </View>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate("App")}>
+          <View style={styles.backToDashboardButton}>
+            <Text style={styles.dashboardText}>Back to Dashboard</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -116,12 +111,24 @@ const styles = StyleSheet.create({
   container: {
     // flex: 1,
     marginTop: 45,
-    // backgroundColor: '#aaa',
     justifyContent: "center",
     alignItems: "center"
   },
   backButton: {
     flexDirection: "row"
+  },
+  backToDashboardButton: {
+    height: 25,
+    width: 175,
+    backgroundColor: "#254ade",
+    borderRadius: 25,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 30
+  },
+  dashboardText: {
+    color: "#fff",
+    fontSize: 12
   },
   scheduleServiceOptions: {
     backgroundColor: "#f2f2f2",
@@ -133,15 +140,10 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   containerTop: {
-    // flex: 1,
-    // paddingTop: 25,
-    // backgroundColor: '#aaa',
     justifyContent: "center",
     alignItems: "center"
   },
   optionsText: {
-    // paddingRight: 20,
-    // marginTop:10,
     fontSize: 20,
     fontFamily: "open-sans-regular",
     color: "#333333",
@@ -161,9 +163,4 @@ const styles = StyleSheet.create({
     marginTop: 5,
     justifyContent: "center"
   }
-  // containerTop: {
-  //   flex: 1,
-  //   backgroundColor: '#555',
-  //   justifyContent: "space-around",
-  // },
 });

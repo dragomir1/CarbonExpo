@@ -81,8 +81,6 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   textheader: {
-    // paddingRight: 20,
-    // marginTop:10,
     fontSize: 25,
     fontFamily: "open-sans-regular",
     color: "#fff",

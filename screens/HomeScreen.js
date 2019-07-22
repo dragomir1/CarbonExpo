@@ -1,5 +1,5 @@
-import React from 'react';
-import * as firebase from 'firebase';
+import React from "react";
+import * as firebase from "firebase";
 import {
   StyleSheet,
   Text,
@@ -7,90 +7,63 @@ import {
   View,
   Image,
   TouchableOpacity
-} from 'react-native';
+} from "react-native";
 
-import FacebookLoginButton from '../components/FacebookLoginButton';
-import GoogleLoginButton from '../components/GoogleLoginButton';
-
+import FacebookLoginButton from "../components/FacebookLoginButton";
+import GoogleLoginButton from "../components/GoogleLoginButton";
 
 export default class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
-      email: '',
-      password: '',
+      name: "",
+      email: "",
+      password: "",
       errorMessage: null
-    }
+    };
   }
 
-
   handleSignUp = () => {
-    // TODO: Validate registration info
-
-    const { email, password, name } = this.state
-    // TODO: Do something with the user's name. We're currently not storing it in Firebase
-    // let user = firebase.auth().currentUser
-    // firebase.database()
-    //   .ref('users/' + user.uid)
-    //   .set({
-    //     name: name
-    //   })
-    //   .then(() => {
-    //     console.warn("added new user");
-    //   })
-    //   .catch(error => {
-    //     console.warn("User name wasn't added")
-    // });
-
+    const { email, password, name } = this.state;
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(() => {
-        console.log("Created user with firebase");
-        let user = firebase.auth().currentUser
-        user.updateProfile({
-          displayName: name
-        })
-        .then(function() {
-          console.log("added user name to firebase")
-        })
-        .catch(function(error) {
-          console.warn("user wasn't added")
-        });
+        let user = firebase.auth().currentUser;
+        user
+          .updateProfile({
+            displayName: name
+          })
+          .catch(function(error) {
+            console.warn("user wasn't added");
+          });
       })
-      .catch(error => this.setState({ errorMessage: error.message }))
-  }
+      .catch(error => this.setState({ errorMessage: error.message }));
+  };
 
-  // TODO:
-  // handleSignIn => ()
-
-
-  nameChangeHandler = (value) => {
+  nameChangeHandler = value => {
     this.setState({
       name: value
     });
   };
-
 
   render() {
     return (
       <View style={styles.container}>
         <Image
           style={styles.imageStyle}
-          source={require('../assets/images/splashsmall.png')}
+          source={require("../assets/images/splashsmall.png")}
         />
-        {this.state.errorMessage &&
-          <Text style={{ color: 'red' }}>
-            {this.state.errorMessage}
-          </Text>}
-          <TextInput
-            placeholder="Enter Name"
-            autoCapitalize="none"
-            style={styles.textInput}
-            onChangeText={this.nameChangeHandler}
-            value={this.state.name}
-          />
+        {this.state.errorMessage && (
+          <Text style={{ color: "red" }}>{this.state.errorMessage}</Text>
+        )}
+        <TextInput
+          placeholder="Enter Name"
+          autoCapitalize="none"
+          style={styles.textInput}
+          onChangeText={this.nameChangeHandler}
+          value={this.state.name}
+        />
         <TextInput
           placeholder="Enter email"
           autoCapitalize="none"
@@ -107,64 +80,50 @@ export default class HomeScreen extends React.Component {
           value={this.state.password}
         />
 
-        <TouchableOpacity
-          onPress={this.handleSignUp}
-        >
-        <Image
-          source={require('../assets/images//signup.png')}
-          style={styles.signupStyling}
+        <TouchableOpacity onPress={this.handleSignUp}>
+          <Image
+            source={require("../assets/images//signup.png")}
+            style={styles.signupStyling}
           />
-      </TouchableOpacity>
-        <FacebookLoginButton/>
+        </TouchableOpacity>
+        <FacebookLoginButton />
         <GoogleLoginButton />
-          <View style={styles.footerContainer}>
+        <View style={styles.footerContainer}>
+          <Text style={styles.alreadyhaveaccttext}>
+            Already have an account?
+          </Text>
+          <TouchableOpacity>
             <Text
-              style={styles.alreadyhaveaccttext}>Already have an account?
+              style={styles.loginstyle}
+              onPress={() => this.props.navigation.navigate("Login")}
+            >
+              Login
             </Text>
-            <TouchableOpacity>
-              <Text
-                style={styles.loginstyle}
-                onPress={() => this.props.navigation.navigate('Login')}>Login
-              </Text>
-            </TouchableOpacity>
-          </View>
+          </TouchableOpacity>
+        </View>
       </View>
-    )
+    );
   }
 }
-
-// const RootStack = createStackNavigator(
-//   {
-//     Home: HomeScreen,
-//     Login: LoginScreen,
-//   },
-//   {
-//     initialRouteName: 'Home',
-//   }
-// );
-//
-// const AppContainer = createAppContainer(RootStack);
-
-
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center"
   },
   footerContainer: {
     // flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginTop: 20
   },
   textInput: {
     height: 40,
-    textAlign: 'center',
+    textAlign: "center",
     borderRadius: 20,
     width: 300,
-    borderColor: 'lightgray',
+    borderColor: "lightgray",
     borderWidth: 1,
     marginTop: 12
   },
@@ -192,4 +151,4 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     color: "gray"
   }
-})
+});

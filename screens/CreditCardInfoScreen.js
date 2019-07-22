@@ -67,38 +67,50 @@ export default class CreditCardInfoScreen extends React.Component {
         style={styles.textInput}
       />
       <TouchableOpacity
-        onPress={() => this.props.navigation.navigate('App')}
-        style={styles.continueStyling}
-        >
-      <Image source={require('../assets/images/continue.png')} />
+        onPress={() => this.props.navigation.navigate('App')}>
+        <View style={styles.continueButton}>
+          <Text style={styles.continueText}>Continue</Text>
+        </View>
       </TouchableOpacity>
+
       </View>
    </View>
   )
 }
 }
 
+
+
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
     justifyContent: 'center',
-    // alignItems: 'center',
-    // flexDirection: 'row'
   },
   container1: {
     // flex: 1,
     backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
-    // flexDirection: 'row'
   },
   container2: {
-    // flex: 1,
     backgroundColor: '#fff',
     justifyContent: 'center',
     alignItems: 'center',
-    // flexDirection: 'row'
+  },
+  continueButton: {
+    height: 25,
+    width: 175,
+    backgroundColor: "#254ade",
+    borderRadius: 25,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 10
+  },
+  continueText: {
+    color: "#fff",
+    fontSize: 12,
   },
   textInput: {
     backgroundColor: "#f2f2f2",
@@ -124,58 +136,40 @@ const styles = StyleSheet.create({
     paddingBottom: 5,
   },
   dateCode: {
-    // flexDirection: 'row',
     backgroundColor: "#f2f2f2",
     borderWidth: 1,
     borderColor: "#f3f3f3",
     borderRadius: 5,
     marginBottom:10,
     marginLeft: 40,
-    // justifyContent: "space-between",
     width: 100,
-    // height: 50,
   },
   dateCodeSecCode: {
-    // flexDirection: 'row',
     backgroundColor: "#f2f2f2",
     borderWidth: 1,
     borderColor: "#f3f3f3",
     borderRadius: 5,
     marginBottom:10,
     marginRight: 40,
-    // paddingLeft: 10,
-    // paddingRight: 20,
-    // justifyContent: "space-between",
     width: 100,
-    // marginRight: 30,
-    // height: 50,
   },
   dateCodeState: {
-    // flexDirection: 'row',
     backgroundColor: "#f2f2f2",
     borderWidth: 1,
     borderColor: "#f3f3f3",
     borderRadius: 5,
     marginBottom:10,
-    // justifyContent: "space-between",
     width: 100,
     marginLeft: 40,
-
-    // marginLeft: 30,
-    // height: 50,
   },
   dateCodeZip: {
-    // flexDirection: 'row',
     backgroundColor: "#f2f2f2",
     borderWidth: 1,
     borderColor: "#f3f3f3",
     borderRadius: 5,
     marginBottom:10,
     marginRight: 40,
-    // marginRight: 30,
-    // justifyContent: "space-between",
     width: 100,
-    // height: 50,
   },
   date: {
     paddingRight: 10,

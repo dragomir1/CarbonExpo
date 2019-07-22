@@ -39,7 +39,6 @@ export default class CarInfoScreen extends React.Component {
 
     let user = firebase.auth().currentUser;
     let userId = user.uid;
-    console.warn(userId);
     firebase
       .database()
       .ref("userCarInfo/" + userId)
@@ -50,9 +49,6 @@ export default class CarInfoScreen extends React.Component {
         carMilage: this.state.carMilage,
         carEngineType: this.state.carEngineType
       })
-      .then(() => {
-        console.warn("added Car Info");
-      })
       .then(() => this.props.navigation.navigate("App"))
       .catch(error => {
         console.warn(error);
@@ -60,7 +56,6 @@ export default class CarInfoScreen extends React.Component {
   };
 
   render() {
-
     let dataCarMake = [
       {
         value: "Toyota"
@@ -245,7 +240,7 @@ export default class CarInfoScreen extends React.Component {
     ];
 
     let optionModels;
-// switch case
+    // switch case
     if (this.state.carMake === "Toyota") {
       optionModels = (
         <Dropdown
@@ -296,18 +291,16 @@ export default class CarInfoScreen extends React.Component {
       );
     }
 
-
     let dataOption;
     if (this.state.carMake === "Honda") {
-      dataOption = dataHondaModels
+      dataOption = dataHondaModels;
     } else if (this.state.carMake === "Toyota") {
-      dataOption = dataToyotaModels
+      dataOption = dataToyotaModels;
     } else if (this.state.carMake === "Ford") {
-      dataOption = dataFordModels
+      dataOption = dataFordModels;
     } else if (this.state.carMake === "BMW") {
-      dataOption = dataBMWModels
+      dataOption = dataBMWModels;
     }
-
 
     return (
       <View style={styles.container}>
@@ -315,7 +308,8 @@ export default class CarInfoScreen extends React.Component {
           Hi {this.state.userName}, Tell us about your car
         </Text>
         <Text style={styles.carBodyInfo}>
-          Before we can connect you with our technicians, We can better assist you in situations by knowing these few facts about your car.
+          Before we can connect you with our technicians, We can better assist
+          you in situations by knowing these few facts about your car.
         </Text>
         <Dropdown
           label="Make"
@@ -363,17 +357,16 @@ export default class CarInfoScreen extends React.Component {
           name="carEngineType"
         />
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate('CreditCardInfoScreen')}
-          >
+          onPress={() => this.props.navigation.navigate("CreditCardInfoScreen")}
+        >
           <View style={styles.ccInfo}>
             <Text style={styles.ccInfoText}>Add Credit Card Information</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity
-          onPress={this.submitInfoHandler}
-          style={styles.continueStyling}
-        >
-          <Image source={require("../assets/images/continue.png")} />
+        <TouchableOpacity onPress={this.submitInfoHandler}>
+          <View style={styles.continueButton}>
+            <Text style={styles.continueText}>Continue</Text>
+          </View>
         </TouchableOpacity>
       </View>
     );
@@ -390,7 +383,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     justifyContent: "center",
     alignItems: "center"
-    // flexDirection: 'row'
   },
   ccInfo: {
     height: 25,
@@ -401,12 +393,22 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 30
   },
-  ccInfoText: {
-    // paddingT: 30,
+  continueButton: {
+    height: 25,
+    width: 175,
+    backgroundColor: "#254ade",
+    borderRadius: 25,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 10
+  },
+  continueText: {
     color: "#fff",
-    fontSize: 12,
-    // justifyContent: 'center',
-    // alignItems: 'center'
+    fontSize: 12
+  },
+  ccInfoText: {
+    color: "#fff",
+    fontSize: 12
   },
   carHeader: {
     fontSize: 20,
@@ -423,7 +425,6 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   dropdown: {
-    // padding: 45,
     marginBottom: 10,
     width: 200,
     height: 50

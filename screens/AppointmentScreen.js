@@ -47,8 +47,6 @@ export default class AppointmentScreen extends React.Component {
     });
   }
 
-  // render the info in the confirmation screen...set up "here are your details" screen? prior to confirming.
-
   returnURLHandler = () => {
     if (this.state.serviceType === "windshield") {
       return require("../assets/images/windshield-text-1x.png");
@@ -100,8 +98,12 @@ export default class AppointmentScreen extends React.Component {
           is24Hour={false}
           minuteInterval={30}
         />
+        <View style={styles.chosenDate}>
+          <Text style={styles.dateText}>
+            {this.state.date && this.state.date.toLocaleString()}
+          </Text>
+        </View>
         <View style={{ backgroundColor: this.state.textarea }}>
-          <Text>{this.state.date && this.state.date.toLocaleString()}</Text>
           <TextInput
             placeholder="phone number"
             onChangeText={phoneNumber => this.setState({ phoneNumber })}
@@ -159,7 +161,7 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     borderColor: "#e6e6e6",
     borderRadius: 5,
-    borderWidth: 2,
+    borderWidth: 2
   },
   buttonStyling: {
     marginTop: 20
@@ -194,6 +196,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginTop: 10
   },
+  chosenDate: {
+    justifyContent: "center",
+    alignItems: "center",
+    marginBottom: 5
+  },
   backToDashboardButton1: {
     height: 25,
     width: 175,
@@ -207,6 +214,12 @@ const styles = StyleSheet.create({
     fontSize: 14,
     fontFamily: "open-sans-regular",
     color: "#fff",
+    textAlign: "center"
+  },
+  dateText: {
+    fontSize: 14,
+    fontFamily: "open-sans-regular",
+    color: "#000",
     textAlign: "center"
   }
 });
