@@ -91,7 +91,6 @@ export default class DashboardScreen extends React.Component {
           {this.state.serviceAlert && this.alertBox}
         </View>
         <View style={styles.containerMain1}>
-          <View>
             <TouchableOpacity onPress={() => this.navigateToService("engine")}>
               <Image
                 source={require("./img/engine-text.png")}
@@ -112,8 +111,8 @@ export default class DashboardScreen extends React.Component {
                 style={styles.images}
               />
             </TouchableOpacity>
-          </View>
-          <View>
+
+
             <TouchableOpacity onPress={() => this.navigateToService("carwash")}>
               <Image
                 source={require("./img/carwash-text.png")}
@@ -132,7 +131,6 @@ export default class DashboardScreen extends React.Component {
                 style={styles.images}
               />
             </TouchableOpacity>
-          </View>
         </View>
 
         <View style={styles.updateButtonStyle}>
@@ -152,11 +150,14 @@ export default class DashboardScreen extends React.Component {
 const styles = StyleSheet.create({
   containerMain: {
     // flex: 1,
+    // borderColor: "red",
+    // borderWidth: 1,
     backgroundColor: "#fff",
     justifyContent: "center",
     alignContent: "center",
     flexDirection: "column",
     marginTop: 50
+
   },
   backToDashboardButton: {
     height: 25,
@@ -165,7 +166,9 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 10
+    marginTop: 10,
+    // borderColor: "red",
+    // borderWidth: 1,
   },
   text4: {
     fontSize: 14,
@@ -174,12 +177,21 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   containerMain1: {
+    // borderColor: "purple",
+    // borderWidth: 1,
     marginTop: 20,
     justifyContent: "center",
-    flexDirection: "row"
+    flexDirection: "row",
+    flexWrap: "wrap",
+    // alignContent: "center",
+    alignSelf: "center",
+        // flexGrow: 1,
+
   },
   alertView: {
     marginTop: 10,
+    // borderColor: "blue",
+    // borderWidth: 1,
     justifyContent: "center",
     flexDirection: "row"
   },
@@ -208,7 +220,9 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   textGreeting: {
-    flexDirection: "column"
+    flexDirection: "column",
+    // borderColor: "green",
+    // borderWidth: 1,
   },
   scheduleServiceButton: {
     backgroundColor: "#254ade",
@@ -258,10 +272,17 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 10,
     marginRight: 5,
-    marginBottom: 5
+    marginBottom: 5,
+    height: 130,
+    width: 130
+    // alignItems: "stretch"
+    // height: "100%",
+    // width: "100%"
   },
   updateButtonStyle: {
     alignItems: "center",
+    // borderColor: "teal",
+    // borderWidth: 1,
     flexDirection: "column",
     marginTop: 20
   }
