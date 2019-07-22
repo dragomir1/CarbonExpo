@@ -33,8 +33,8 @@ export default class SuccessScreen extends Component {
 
     Notifications.scheduleLocalNotificationAsync(
       {
-        title: "curls for the girls",
-        body: " I pump iron to pump girls"
+        title: "Your car appointment",
+        body: "You're scheduled for:",
       },
       {
         time: new Date().getTime() + 1000

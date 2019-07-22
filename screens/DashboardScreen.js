@@ -94,7 +94,7 @@ export default class DashboardScreen extends React.Component {
           <View>
             <TouchableOpacity onPress={() => this.navigateToService("engine")}>
               <Image
-                source={require("../assets/images/engine-text-1x.png")}
+                source={require("../assets/images/engine-text.png")}
                 style={styles.images}
               />
             </TouchableOpacity>
@@ -102,13 +102,13 @@ export default class DashboardScreen extends React.Component {
               onPress={() => this.navigateToService("windshield")}
             >
               <Image
-                source={require("../assets/images/windshield-text-1x.png")}
+                source={require("../assets/images/windshield-text.png")}
                 style={styles.images}
               />
             </TouchableOpacity>
             <TouchableOpacity>
               <Image
-                source={require("../assets/images/tires-text-1x.png")}
+                source={require("../assets/images/tires-text.png")}
                 style={styles.images}
               />
             </TouchableOpacity>
@@ -116,19 +116,19 @@ export default class DashboardScreen extends React.Component {
           <View>
             <TouchableOpacity onPress={() => this.navigateToService("carwash")}>
               <Image
-                source={require("../assets/images/carwash-text-1x.png")}
+                source={require("../assets/images/carwash-text.png")}
                 style={styles.images}
               />
             </TouchableOpacity>
             <TouchableOpacity>
               <Image
-                source={require("../assets/images/gas-text-1x.png")}
+                source={require("../assets/images/gas-text.png")}
                 style={styles.images}
               />
             </TouchableOpacity>
             <TouchableOpacity>
               <Image
-                source={require("../assets/images/search-text-1x.png")}
+                source={require("../assets/images/search-text.png")}
                 style={styles.images}
               />
             </TouchableOpacity>
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 30
+    marginTop: 10
   },
   text4: {
     fontSize: 14,

@@ -49,11 +49,11 @@ export default class AppointmentScreen extends React.Component {
 
   returnURLHandler = () => {
     if (this.state.serviceType === "windshield") {
-      return require("../assets/images/windshield-text-1x.png");
+      return require("../assets/images/windshield-text.png");
     } else if (this.state.serviceType === "carwash") {
-      return require("../assets/images/carwash-text-1x.png");
+      return require("../assets/images/carwash-text.png");
     } else if (this.state.serviceType === "engine") {
-      return require("../assets/images/engine-text-1x.png");
+      return require("../assets/images/engine-text.png");
     }
   };
 
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 2,
     width: 250,
-    height: 200
+    height: 125
   },
   phoneInputSytling: {
     paddingLeft: 5,
