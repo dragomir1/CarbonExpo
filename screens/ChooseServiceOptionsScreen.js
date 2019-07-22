@@ -35,7 +35,7 @@ export default class ChooseServiceOptionsScreen extends React.Component {
     } else if (this.state.serviceType === "carwash") {
       return require("../assets/images/carwash-text-1x.png");
     } else if (this.state.serviceType === "engine") {
-      return require("../assets/images/engine-text.png");
+      return require("../assets/images/engine-text-1x.png");
     }
   };
   // in classes you dont need a declaration
@@ -43,7 +43,7 @@ export default class ChooseServiceOptionsScreen extends React.Component {
     "Fix cracked windshield",
     "Replace windshield",
     "Clean windshield",
-    "Replace Windshield Wipers"
+    "Replace Windshield Wipers."
   ];
 
   carWashServiceOptions = [

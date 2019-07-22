@@ -10,6 +10,7 @@ import CreditCardInfoScreen from './screens/CreditCardInfoScreen';
 import DashboardScreen from './screens/DashboardScreen';
 import AppointmentScreen from './screens/AppointmentScreen';
 import SuccessScreen from './screens/SuccessScreen';
+import ReviewApptScreen from './screens/ReviewApptScreen';
 
 async function loadResourcesAsync() {
   await Promise.all([

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   View,
   Text,
@@ -6,13 +6,12 @@ import {
   Button,
   TextInput,
   TouchableOpacity,
-  StyleSheet}
-from 'react-native';
-import * as SMS from 'expo-sms';
+  StyleSheet
+} from "react-native";
+import * as SMS from "expo-sms";
 import { Font } from "expo";
 import DateTimePicker from "react-native-modal-datetime-picker";
 import { EvilIcons } from "@expo/vector-icons";
-
 
 export default class AppointmentScreen extends React.Component {
   constructor(props) {
@@ -41,7 +40,6 @@ export default class AppointmentScreen extends React.Component {
   }
 
   navigateToApptRequest() {
-    console.warn('hi')
     this.props.navigation.push("ReviewApptScreen", {
       date: this.state.date,
       apptType: this.state.apptType,
@@ -49,94 +47,86 @@ export default class AppointmentScreen extends React.Component {
     });
   }
 
+  // render the info in the confirmation screen...set up "here are your details" screen? prior to confirming.
 
-// render the info in the confirmation screen...set up "here are your details" screen? prior to confirming.
-
-returnURLHandler = () => {
-  if (this.state.serviceType === "windshield") {
-    return require("../assets/images/windshield-text-1x.png");
-  } else if (this.state.serviceType === "carwash") {
-    return require("../assets/images/carwash-text-1x.png");
-  } else if (this.state.serviceType === "engine") {
-    return require("../assets/images/engine-text.png");
-  }
-};
+  returnURLHandler = () => {
+    if (this.state.serviceType === "windshield") {
+      return require("../assets/images/windshield-text-1x.png");
+    } else if (this.state.serviceType === "carwash") {
+      return require("../assets/images/carwash-text-1x.png");
+    } else if (this.state.serviceType === "engine") {
+      return require("../assets/images/engine-text-1x.png");
+    }
+  };
 
   showDateTimePicker = () => {
     this.setState({ isDateTimePickerVisible: true });
   };
-
-
 
   hideDateTimePicker = () => {
     this.setState({ isDateTimePickerVisible: false });
   };
 
   handleDatePicked = date => {
-    console.log("A date has been picked: ", date);
     this.setState({
       date: date
-    })
+    });
     this.hideDateTimePicker();
   };
 
   render() {
-
     return (
       <View style={styles.container}>
-        <View style={styles.backButton}>
-          <TouchableOpacity>
-            <EvilIcons
-              name="chevron-left"
-              size={32}
-              onPress={() => this.props.navigation.pop()}
-            />
-          </TouchableOpacity>
-        </View>
         <Image source={this.returnURLHandler()} />
         <View style={styles.headerContainer}>
-          <Text style={styles.appointmentHeader}>
-            {this.state.apptType}
-          </Text>
+          <Text style={styles.appointmentHeader}>{this.state.apptType}</Text>
           <Text style={styles.appointmentHeader}>Appointment.</Text>
           <Text style={styles.appointmentBodyInfo}>
-            Tell us what day and time works best for you.  Add additional information below if necessary.
+            Tell us what day and time works best for you. Add additional
+            information below if necessary.
           </Text>
         </View>
         <Button
           style={styles.dateButton}
           title="Pick a date and time"
-          onPress={this.showDateTimePicker} />
+          onPress={this.showDateTimePicker}
+        />
         <DateTimePicker
           isVisible={this.state.isDateTimePickerVisible}
           onConfirm={this.handleDatePicked}
           onCancel={this.hideDateTimePicker}
-          timePickerModeAndroid='clock'
+          timePickerModeAndroid="default"
           mode="datetime"
           is24Hour={false}
+          minuteInterval={30}
         />
-      <View style={{backgroundColor: this.state.textarea}}>
-        <Text>{ this.state.date && this.state.date.toLocaleString()}</Text>
-        <TextInput
-          placeholder="phone number"
-          onChangeText={(phoneNumber) => this.setState({phoneNumber})}
-          value={this.state.phoneNumber}
+        <View style={{ backgroundColor: this.state.textarea }}>
+          <Text>{this.state.date && this.state.date.toLocaleString()}</Text>
+          <TextInput
+            placeholder="phone number"
+            onChangeText={phoneNumber => this.setState({ phoneNumber })}
+            value={this.state.phoneNumber}
+            style={styles.phoneInputSytling}
           />
-        <TextInput
-        style={styles.textInputSytling}
-        editable = {true}
-        multiline = {true}
-        numberOfLines = {4}
-        onChangeText={(customerRequest) => this.setState({customerRequest})}
-        value={this.state.textarea}
-        />
-    </View>
-    <TouchableOpacity
-      onPress={ () => this.navigateToApptRequest()}
-      style={styles.buttonStyling}
-      >
-    <Image source={require('../assets/images/book-service.png')} />
-    </TouchableOpacity>
+          <TextInput
+            placeholder="additional info"
+            style={styles.textInputSytling}
+            editable={true}
+            multiline={true}
+            onChangeText={customerRequest => this.setState({ customerRequest })}
+            value={this.state.textarea}
+          />
+        </View>
+        <TouchableOpacity onPress={() => this.navigateToApptRequest()}>
+          <View style={styles.backToDashboardButton1}>
+            <Text style={styles.text4}>Book Service</Text>
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate("App")}>
+          <View style={styles.backToDashboardButton}>
+            <Text style={styles.text4}>Back to Dashboard</Text>
+          </View>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -150,8 +140,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     // marginTop: 20,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center"
   },
   dateButton: {
     marginTop: 15
@@ -159,21 +149,27 @@ const styles = StyleSheet.create({
   textInputSytling: {
     paddingLeft: 5,
     marginTop: 15,
-    borderColor: '#f3f3f3',
+    borderColor: "#e6e6e6",
     borderRadius: 10,
     borderWidth: 2,
-    width:250,
-    height: 200,
+    width: 250,
+    height: 200
+  },
+  phoneInputSytling: {
+    paddingLeft: 5,
+    borderColor: "#e6e6e6",
+    borderRadius: 5,
+    borderWidth: 2,
   },
   buttonStyling: {
-    marginTop: 20,
+    marginTop: 20
   },
   backButton: {
-    flexDirection:"row",
+    flexDirection: "row"
   },
   headerContainer: {
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   appointmentHeader: {
     fontSize: 20,
@@ -189,4 +185,28 @@ const styles = StyleSheet.create({
     marginTop: 5,
     justifyContent: "center"
   },
+  backToDashboardButton: {
+    height: 25,
+    width: 175,
+    backgroundColor: "#000",
+    borderRadius: 25,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 10
+  },
+  backToDashboardButton1: {
+    height: 25,
+    width: 175,
+    backgroundColor: "#254ade",
+    borderRadius: 25,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: 10
+  },
+  text4: {
+    fontSize: 14,
+    fontFamily: "open-sans-regular",
+    color: "#fff",
+    textAlign: "center"
+  }
 });
