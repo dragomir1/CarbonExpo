@@ -72,7 +72,7 @@ export default function FacebookLoginButton() {
       onPress={logIn}
     >
       <Image
-        source={require('../assets/images/facebook.png')}
+        source={require('./img/facebook.png')}
         style={styles}
       />
     </TouchableOpacity>

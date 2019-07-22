@@ -31,11 +31,11 @@ export default class ChooseServiceOptionsScreen extends React.Component {
   // convert to a switch statment
   returnURLHandler = () => {
     if (this.state.serviceType === "windshield") {
-      return require("../assets/images/windshield-text.png");
+      return require("./img/windshield-text.png");
     } else if (this.state.serviceType === "carwash") {
-      return require("../assets/images/carwash-text.png");
+      return require("./img/carwash-text.png");
     } else if (this.state.serviceType === "engine") {
-      return require("../assets/images/engine-text.png");
+      return require("./img/engine-text.png");
     }
   };
   // in classes you dont need a declaration

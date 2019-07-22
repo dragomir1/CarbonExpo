@@ -82,7 +82,7 @@ export default class HomeScreen extends React.Component {
 
         <TouchableOpacity onPress={this.handleSignUp}>
           <Image
-            source={require("../assets/images//signup.png")}
+            source={require("./img/signup.png")}
             style={styles.signupStyling}
           />
         </TouchableOpacity>

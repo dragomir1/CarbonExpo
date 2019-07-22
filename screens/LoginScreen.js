@@ -53,7 +53,7 @@ export default class LoginScreen extends React.Component {
         />
         <TouchableOpacity onPress={this.handleLogin}>
           <Image
-            source={require("../assets/images/login.png")}
+            source={require("./img/login.png")}
             style={styles.loginStyling}
           />
         </TouchableOpacity>

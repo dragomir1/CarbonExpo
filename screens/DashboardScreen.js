@@ -94,7 +94,7 @@ export default class DashboardScreen extends React.Component {
           <View>
             <TouchableOpacity onPress={() => this.navigateToService("engine")}>
               <Image
-                source={require("../assets/images/engine-text.png")}
+                source={require("./img/engine-text.png")}
                 style={styles.images}
               />
             </TouchableOpacity>
@@ -102,13 +102,13 @@ export default class DashboardScreen extends React.Component {
               onPress={() => this.navigateToService("windshield")}
             >
               <Image
-                source={require("../assets/images/windshield-text.png")}
+                source={require("./img/windshield-text.png")}
                 style={styles.images}
               />
             </TouchableOpacity>
             <TouchableOpacity>
               <Image
-                source={require("../assets/images/tires-text.png")}
+                source={require("./img/tires-text.png")}
                 style={styles.images}
               />
             </TouchableOpacity>
@@ -116,19 +116,19 @@ export default class DashboardScreen extends React.Component {
           <View>
             <TouchableOpacity onPress={() => this.navigateToService("carwash")}>
               <Image
-                source={require("../assets/images/carwash-text.png")}
+                source={require("./img/carwash-text.png")}
                 style={styles.images}
               />
             </TouchableOpacity>
             <TouchableOpacity>
               <Image
-                source={require("../assets/images/gas-text.png")}
+                source={require("./img/gas-text.png")}
                 style={styles.images}
               />
             </TouchableOpacity>
             <TouchableOpacity>
               <Image
-                source={require("../assets/images/search-text.png")}
+                source={require("./img/search-text.png")}
                 style={styles.images}
               />
             </TouchableOpacity>

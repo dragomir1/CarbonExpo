@@ -47,7 +47,7 @@ export default function GoogleLoginButton() {
     <TouchableOpacity
       onPress={signInWithGoogleAsync}>
       <Image
-        source={require("../assets/images/google.png")}
+        source={require("./img/google.png")}
         style={styles} />
     </TouchableOpacity>
   );
