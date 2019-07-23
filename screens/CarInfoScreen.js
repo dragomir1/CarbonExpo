@@ -275,7 +275,7 @@ export default class CarInfoScreen extends React.Component {
           containerStyle={styles.dropdown}
           baseColor="#000"
           onChangeText={carMake => this.setState({ carMake })}
-          Value={this.state.carMake}
+          value={this.state.carMake}
           name="carMake"
         />
         <Dropdown
