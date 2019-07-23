@@ -4,6 +4,7 @@ import { Font } from "expo";
 import { Entypo, EvilIcons } from "@expo/vector-icons";
 import { Notifications } from "expo";
 import * as Permissions from "expo-permissions";
+import sendSMS from '../tools/sms';
 
 export default class SuccessScreen extends Component {
   constructor(props) {
@@ -31,15 +32,7 @@ export default class SuccessScreen extends Component {
       phoneNumber: phoneNumber
     };
 
-    Notifications.scheduleLocalNotificationAsync(
-      {
-        title: "Your car appointment",
-        body: "your appointment: " + this.state.date.toLocaleString() + this.state.apptType
-      },
-      {
-        time: new Date().getTime() + 1000
-      }
-    );
+    sendSMS(phoneNumber, "Reminder, you have an appointment for " + this.state.apptType + " is at " + this.state.date.toLocaleString());
   }
 
   render() {
