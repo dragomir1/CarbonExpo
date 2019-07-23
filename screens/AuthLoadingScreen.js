@@ -9,8 +9,7 @@ import {
 import * as firebase from "firebase";
 
 export default class AuthLoadingScreen extends React.Component {
-  constructor(props) {
-    super(props);
+  componentDidMount() {
 
     // TODO: Is there a better place to put this? IDK.
     firebase.auth().onAuthStateChanged(user => {

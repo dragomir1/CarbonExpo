@@ -18,7 +18,9 @@ export default class DashboardScreen extends React.Component {
       carYear: "",
       serviceAlert: false
     };
+  }
 
+  componentDidMount() {
     let user = firebase.auth().currentUser;
     let userId = user.uid;
     firebase
