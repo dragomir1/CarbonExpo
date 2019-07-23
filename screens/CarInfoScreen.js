@@ -274,7 +274,7 @@ export default class CarInfoScreen extends React.Component {
           data={this.dataCarMake}
           containerStyle={styles.dropdown}
           baseColor="#000"
-          onChangeText={carMake => this.setState({ carMake })}
+          onChangeText={carMake => this.state.carMake !== carMake && this.setState({ carMake, carModel: "" })}
           value={this.state.carMake}
           name="carMake"
         />
