@@ -230,58 +230,6 @@ export default class CarInfoScreen extends React.Component {
       }
     ];
 
-    let optionModels;
-    // switch case
-    if (this.state.carMake === "Toyota") {
-      optionModels = (
-        <Dropdown
-          label="Model"
-          data={dataToyotaModels}
-          containerStyle={styles.dropdown}
-          baseColor="#000"
-          onChangeText={carModel => this.setState({ carModel })}
-          value={this.state.carModel}
-          name="carModel"
-        />
-      );
-    } else if (this.state.carMake === "Honda") {
-      optionModels = (
-        <Dropdown
-          label="Model"
-          data={dataHondaModels}
-          containerStyle={styles.dropdown}
-          baseColor="#000"
-          onChangeText={carModel => this.setState({ carModel })}
-          value={this.state.carModel}
-          name="carModel"
-        />
-      );
-    } else if (this.state.carMake === "Ford") {
-      optionModels = (
-        <Dropdown
-          label="Model"
-          data={dataFordModels}
-          containerStyle={styles.dropdown}
-          baseColor="#000"
-          onChangeText={carModel => this.setState({ carModel })}
-          value={this.state.carModel}
-          name="carModel"
-        />
-      );
-    } else if (this.state.carMake === "BMW") {
-      optionModels = (
-        <Dropdown
-          label="Model"
-          data={dataBMWModels}
-          containerStyle={styles.dropdown}
-          baseColor="#000"
-          onChangeText={carModel => this.setState({ carModel })}
-          value={this.state.carModel}
-          name="carModel"
-        />
-      );
-    }
-
     let dataOption;
     if (this.state.carMake === "Honda") {
       dataOption = dataHondaModels;
