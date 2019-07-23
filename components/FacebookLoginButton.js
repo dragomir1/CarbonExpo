@@ -24,7 +24,6 @@ async function logIn() {
       firebase.auth()
         .signInWithCredential(credential)
         .then(userCredential => {
-          console.warn('firebase sigIn success');
 
           // 'signIn' for a sign-in operation, 'link' for a linking operation and 'reauthenticate' for a reauthentication operation.
           //console.warn("operationType: " + operationType);

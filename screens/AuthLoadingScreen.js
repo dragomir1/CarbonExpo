@@ -21,7 +21,6 @@ export default class AuthLoadingScreen extends React.Component {
       if (user) {
         let user = firebase.auth().currentUser;
         let userId = user.uid;
-        console.warn(userId);
         firebase
           .database()
           .ref("userCarInfo/" + userId)

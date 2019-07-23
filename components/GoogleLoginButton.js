@@ -21,7 +21,7 @@ async function signInWithGoogleAsync() {
         .auth()
         .signInWithCredential(credential)
         .then(userCredential => {
-          console.warn("google sigIn success");
+          // Login is handled by a Firebase listener in AuthLoadingScreen
         })
         .catch(error => {
           console.warn(error);
