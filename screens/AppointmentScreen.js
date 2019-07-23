@@ -8,26 +8,15 @@ import {
   TouchableOpacity,
   StyleSheet
 } from "react-native";
-import * as SMS from "expo-sms";
 import { Font } from "expo";
 import DateTimePicker from "react-native-modal-datetime-picker";
-import { EvilIcons } from "@expo/vector-icons";
 
 export default class AppointmentScreen extends React.Component {
   constructor(props) {
     super(props);
 
-    const defaultServiceType = "--default-service-type--fix-me--";
-    const serviceType = this.props.navigation.getParam(
-      "serviceType",
-      defaultServiceType
-    );
-
-    const defaultApptType = "--default-appt-type--fix-me--";
-    const apptType = this.props.navigation.getParam(
-      "apptType",
-      defaultApptType
-    );
+    const serviceType = this.props.navigation.getParam("serviceType", "--default-service-type--fix-me--");
+    const apptType = this.props.navigation.getParam("apptType", "--default-appt-type--fix-me--");
 
     this.state = {
       isDateTimePickerVisible: false,

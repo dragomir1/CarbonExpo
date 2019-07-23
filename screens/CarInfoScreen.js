@@ -26,17 +26,8 @@ export default class CarInfoScreen extends React.Component {
     };
   }
 
-  // nameChangeHandler = event => {
-  //   const target = event.target;
-  //   this.setState({
-  //     [target.name]: target.value
-  //   });
-  //   console.warn(this.state);
-  // };
 
   submitInfoHandler = () => {
-    const { carModel, carYear, carMake, carMilage, carEngineType } = this.state;
-
     let user = firebase.auth().currentUser;
     let userId = user.uid;
     firebase

@@ -7,11 +7,7 @@ export default class ChooseServiceOptionsScreen extends React.Component {
   constructor(props) {
     super(props);
     // this make it a member variable belongs in a class and retains values thorugh lifetime of class...
-    const defaultServiceType = "--default-service-type--fix-me--";
-    const serviceType = this.props.navigation.getParam(
-      "serviceType",
-      defaultServiceType
-    );
+    const serviceType = this.props.navigation.getParam("serviceType", "--default-service-type--fix-me--");
 
     this.state = {
       serviceType: serviceType

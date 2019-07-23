@@ -10,20 +10,9 @@ export default class SuccessScreen extends Component {
   constructor(props) {
     super(props);
 
-    const defaultApptType = "--default-appt-type--fix-me--";
-    const apptType = this.props.navigation.getParam(
-      "apptType",
-      defaultApptType
-    );
-
-    const defaultdateType = "--default-date-type--fix-me--";
-    const date = this.props.navigation.getParam("date", defaultdateType);
-
-    const defaultPhoneNumberType = "--default-phone-type--fix-me--";
-    const phoneNumber = this.props.navigation.getParam(
-      "phoneNumber",
-      defaultPhoneNumberType
-    );
+    const apptType = this.props.navigation.getParam("apptType", "--default-appt-type--fix-me--");
+    const date = this.props.navigation.getParam("date", "--default-date-type--fix-me--");
+    const phoneNumber = this.props.navigation.getParam("phoneNumber", "--default-phone-type--fix-me--");
 
     this.state = {
       customerRequest: "",
