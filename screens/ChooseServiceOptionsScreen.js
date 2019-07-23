@@ -72,9 +72,9 @@ export default class ChooseServiceOptionsScreen extends React.Component {
       options = this.engineServiceOptions;
     }
     return options.map((option, i) => (
-      <TouchableOpacity onPress={() => this.navigateToAppointment(option)}>
+      <TouchableOpacity key={i} onPress={() => this.navigateToAppointment(option)}>
         <View style={styles.scheduleServiceOptions}>
-          <Text key={i} style={styles.optionsText}>
+          <Text style={styles.optionsText}>
             {option}
           </Text>
         </View>
