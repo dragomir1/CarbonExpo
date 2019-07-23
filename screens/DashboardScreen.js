@@ -26,7 +26,7 @@ export default class DashboardScreen extends React.Component {
     firebase
       .database()
       .ref("userCarInfo/" + userId)
-      .on("value", snapshot => {
+      .once("value", snapshot => {
         this.setState({
           carMake: snapshot.val().carMake,
           carModel: snapshot.val().carModel,
