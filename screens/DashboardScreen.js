@@ -161,12 +161,6 @@ const styles = StyleSheet.create({
     // borderColor: "red",
     // borderWidth: 1,
   },
-  text4: {
-    fontSize: 14,
-    fontFamily: "open-sans-regular",
-    color: "#fff",
-    textAlign: "center"
-  },
   containerMain1: {
     // borderColor: "purple",
     // borderWidth: 1,
