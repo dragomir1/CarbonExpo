@@ -20,13 +20,11 @@ export default class CarInfoScreen extends React.Component {
       carMake: "",
       carModel: "",
       carYear: "",
-      carMilage: "",
+      carMileage: "",
       carEngineType: "",
       userName: firebase.auth().currentUser.displayName
     };
   }
-
-  // TODO: carMilage -> carMileage
 
   componentDidMount() {
     let user = firebase.auth().currentUser;
@@ -39,7 +37,7 @@ export default class CarInfoScreen extends React.Component {
           carMake: snapshot.val().carMake,
           carModel: snapshot.val().carModel,
           carYear: snapshot.val().carYear,
-          carMilage: snapshot.val().carMilage,
+          carMileage: snapshot.val().carMileage,
           carEngineType: snapshot.val().carYear,
         });
       });
@@ -55,7 +53,7 @@ export default class CarInfoScreen extends React.Component {
         carModel: this.state.carModel,
         carYear: this.state.carYear,
         carMake: this.state.carMake,
-        carMilage: this.state.carMilage,
+        carMileage: this.state.carMileage,
         carEngineType: this.state.carEngineType
       })
       .then(() => this.props.navigation.navigate("App"))
@@ -164,7 +162,7 @@ export default class CarInfoScreen extends React.Component {
       }
     ];
 
-    let dataCarMilage = [
+    let dataCarMileage = [
       {
         value: "> 50,000"
       },
@@ -297,12 +295,12 @@ export default class CarInfoScreen extends React.Component {
         />
         <Dropdown
           label="Milage"
-          data={dataCarMilage}
+          data={dataCarMileage}
           containerStyle={styles.dropdown}
           baseColor="#000"
-          onChangeText={carMilage => this.setState({ carMilage })}
-          value={this.state.carMilage}
-          name="carMilage"
+          onChangeText={carMileage => this.setState({ carMileage })}
+          value={this.state.carMileage}
+          name="carMileage"
         />
         <Dropdown
           label="Engine Type"
