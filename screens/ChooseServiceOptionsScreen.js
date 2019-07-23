@@ -39,7 +39,7 @@ export default class ChooseServiceOptionsScreen extends React.Component {
     "Fix cracked windshield",
     "Replace windshield",
     "Clean windshield",
-    "Replace Windshield Wipers."
+    "Replace Windshield Wipers"
   ];
 
   carWashServiceOptions = [
@@ -81,7 +81,10 @@ export default class ChooseServiceOptionsScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image source={this.returnURLHandler()} />
+        <Image
+          source={this.returnURLHandler()}
+          style={styles.images}
+           />
         <View style={styles.containerTop}>
           <Text style={styles.serviceHeader}>Let us take of it for you.</Text>
           <Text style={styles.serviceBodyInfo}>
@@ -149,6 +152,13 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: "roboto-bold",
     fontWeight: "700"
+  },
+  images: {
+    borderColor: "#f2f2f2",
+    borderWidth: 2,
+    borderRadius: 10,
+    height: 130,
+    width: 130
   },
   serviceBodyInfo: {
     fontSize: 15,

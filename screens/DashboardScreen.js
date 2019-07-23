@@ -36,7 +36,6 @@ export default class DashboardScreen extends React.Component {
           });
         }
       });
-    //will one be called one here in the constructor. constructor is the place if initialization.
     this.AlertBoxTimeoutHandler();
   }
 
