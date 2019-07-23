@@ -62,200 +62,203 @@ export default class CarInfoScreen extends React.Component {
       });
   };
 
-  render() {
-    let dataCarMake = [
-      {
-        value: "Toyota"
-      },
-      {
-        value: "Honda"
-      },
-      {
-        value: "Ford"
-      },
-      {
-        value: "BMW"
-      }
-    ];
-
-    let dataBMWModels = [
-      {
-        value: "M3"
-      },
-      {
-        value: "M5"
-      },
-      {
-        value: "X5"
-      },
-      {
-        value: "X6"
-      },
-      {
-        value: "X3"
-      },
-      {
-        value: "Z4"
-      }
-    ];
-
-    let dataFordModels = [
-      {
-        value: "Mustang"
-      },
-      {
-        value: "Focus"
-      },
-      {
-        value: "Fusion"
-      },
-      {
-        value: "Escape"
-      },
-      {
-        value: "F-150"
-      },
-      {
-        value: "Fiesta"
-      }
-    ];
-
-    let dataToyotaModels = [
-      {
-        value: "Camry"
-      },
-      {
-        value: "Prius"
-      },
-      {
-        value: "Corolla"
-      },
-      {
-        value: "Highlander"
-      },
-      {
-        value: "4Runner"
-      },
-      {
-        value: "Rav4"
-      }
-    ];
-
-    let dataCarYear = [
-      {
-        value: "2019"
-      },
-      {
-        value: "2018"
-      },
-      {
-        value: "2017"
-      },
-      {
-        value: "2016"
-      },
-      {
-        value: "2015"
-      },
-      {
-        value: "2014"
-      }
-    ];
-
-    let dataCarMileage = [
-      {
-        value: "> 50,000"
-      },
-      {
-        value: "> 100,000"
-      },
-      {
-        value: "> 125,000"
-      },
-      {
-        value: "> 150,000"
-      },
-      {
-        value: "> 175,000"
-      },
-      {
-        value: "> 200,000"
-      }
-    ];
-
-    let dataCarEngineType = [
-      {
-        value: "V6"
-      },
-      {
-        value: "2.4L"
-      },
-      {
-        value: "5.0"
-      },
-      {
-        value: "Turbo"
-      },
-      {
-        value: "6 Cylinder"
-      },
-      {
-        value: "Electic"
-      }
-    ];
-
-    let dataHondaModels = [
-      {
-        value: "Civic"
-      },
-      {
-        value: "Insight"
-      },
-      {
-        value: "Accord"
-      },
-      {
-        value: "Pilot"
-      },
-      {
-        value: "CR-V"
-      },
-      {
-        value: "Fit"
-      }
-    ];
-
-    let dataHondaEngineTypes = [
-      {
-        value: "V4-cylinder"
-      },
-      {
-        value: "6-cylinder"
-      },
-      {
-        value: "V6"
-      },
-      {
-        value: "V8"
-      },
-      {
-        value: "Straight 4"
-      },
-      {
-        value: "Inline 5-cylinder"
-      }
-    ];
-
-    let dataOption;
-    if (this.state.carMake === "Honda") {
-      dataOption = dataHondaModels;
-    } else if (this.state.carMake === "Toyota") {
-      dataOption = dataToyotaModels;
-    } else if (this.state.carMake === "Ford") {
-      dataOption = dataFordModels;
-    } else if (this.state.carMake === "BMW") {
-      dataOption = dataBMWModels;
+  dataCarMake = [
+    {
+      value: "Toyota"
+    },
+    {
+      value: "Honda"
+    },
+    {
+      value: "Ford"
+    },
+    {
+      value: "BMW"
     }
+  ];
+
+  dataBMWModels = [
+    {
+      value: "M3"
+    },
+    {
+      value: "M5"
+    },
+    {
+      value: "X5"
+    },
+    {
+      value: "X6"
+    },
+    {
+      value: "X3"
+    },
+    {
+      value: "Z4"
+    }
+  ];
+
+  dataFordModels = [
+    {
+      value: "Mustang"
+    },
+    {
+      value: "Focus"
+    },
+    {
+      value: "Fusion"
+    },
+    {
+      value: "Escape"
+    },
+    {
+      value: "F-150"
+    },
+    {
+      value: "Fiesta"
+    }
+  ];
+
+  dataToyotaModels = [
+    {
+      value: "Camry"
+    },
+    {
+      value: "Prius"
+    },
+    {
+      value: "Corolla"
+    },
+    {
+      value: "Highlander"
+    },
+    {
+      value: "4Runner"
+    },
+    {
+      value: "Rav4"
+    }
+  ];
+
+  dataCarYear = [
+    {
+      value: "2019"
+    },
+    {
+      value: "2018"
+    },
+    {
+      value: "2017"
+    },
+    {
+      value: "2016"
+    },
+    {
+      value: "2015"
+    },
+    {
+      value: "2014"
+    }
+  ];
+
+  dataCarMileage = [
+    {
+      value: "> 50,000"
+    },
+    {
+      value: "> 100,000"
+    },
+    {
+      value: "> 125,000"
+    },
+    {
+      value: "> 150,000"
+    },
+    {
+      value: "> 175,000"
+    },
+    {
+      value: "> 200,000"
+    }
+  ];
+
+  dataCarEngineType = [
+    {
+      value: "V6"
+    },
+    {
+      value: "2.4L"
+    },
+    {
+      value: "5.0"
+    },
+    {
+      value: "Turbo"
+    },
+    {
+      value: "6 Cylinder"
+    },
+    {
+      value: "Electic"
+    }
+  ];
+
+  dataHondaModels = [
+    {
+      value: "Civic"
+    },
+    {
+      value: "Insight"
+    },
+    {
+      value: "Accord"
+    },
+    {
+      value: "Pilot"
+    },
+    {
+      value: "CR-V"
+    },
+    {
+      value: "Fit"
+    }
+  ];
+
+  dataHondaEngineTypes = [
+    {
+      value: "V4-cylinder"
+    },
+    {
+      value: "6-cylinder"
+    },
+    {
+      value: "V6"
+    },
+    {
+      value: "V8"
+    },
+    {
+      value: "Straight 4"
+    },
+    {
+      value: "Inline 5-cylinder"
+    }
+  ];
+
+  getCarModelOptionsForMake(carMake) {
+    if (carMake === "Honda") {
+      return this.dataHondaModels;
+    } else if (carMake === "Toyota") {
+      return this.dataToyotaModels;
+    } else if (carMake === "Ford") {
+      return this.dataFordModels;
+    } else if (carMake === "BMW") {
+      return this.dataBMWModels;
+    }
+  }
+
+  render() {
+    let carModelOptions = this.getCarModelOptionsForMake(this.state.carMake);
 
     return (
       <View style={styles.container}>
@@ -268,7 +271,7 @@ export default class CarInfoScreen extends React.Component {
         </Text>
         <Dropdown
           label="Make"
-          data={dataCarMake}
+          data={this.dataCarMake}
           containerStyle={styles.dropdown}
           baseColor="#000"
           onChangeText={carMake => this.setState({ carMake })}
@@ -277,7 +280,7 @@ export default class CarInfoScreen extends React.Component {
         />
         <Dropdown
           label="Model"
-          data={dataOption}
+          data={carModelOptions}
           containerStyle={styles.dropdown}
           baseColor="#000"
           onChangeText={carModel => this.setState({ carModel })}
@@ -286,7 +289,7 @@ export default class CarInfoScreen extends React.Component {
         />
         <Dropdown
           label="Year"
-          data={dataCarYear}
+          data={this.dataCarYear}
           containerStyle={styles.dropdown}
           baseColor="#000"
           onChangeText={carYear => this.setState({ carYear })}
@@ -295,7 +298,7 @@ export default class CarInfoScreen extends React.Component {
         />
         <Dropdown
           label="Milage"
-          data={dataCarMileage}
+          data={this.dataCarMileage}
           containerStyle={styles.dropdown}
           baseColor="#000"
           onChangeText={carMileage => this.setState({ carMileage })}
@@ -304,7 +307,7 @@ export default class CarInfoScreen extends React.Component {
         />
         <Dropdown
           label="Engine Type"
-          data={dataCarEngineType}
+          data={this.dataCarEngineType}
           containerStyle={styles.dropdown}
           baseColor="#000"
           onChangeText={carEngineType => this.setState({ carEngineType })}
