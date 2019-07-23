@@ -34,7 +34,7 @@ export default class SuccessScreen extends Component {
     Notifications.scheduleLocalNotificationAsync(
       {
         title: "Your car appointment",
-        body: "You're scheduled for:",
+        body: "your appointment: " + this.state.date.toLocaleString() + this.state.apptType
       },
       {
         time: new Date().getTime() + 1000

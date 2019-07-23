@@ -75,7 +75,9 @@ export default class AppointmentScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image source={this.returnURLHandler()} />
+        <Image
+          style={styles.images}
+          source={this.returnURLHandler()} />
         <View style={styles.headerContainer}>
           <Text style={styles.appointmentHeader}>{this.state.apptType}</Text>
           <Text style={styles.appointmentHeader}>Appointment.</Text>
@@ -186,6 +188,13 @@ const styles = StyleSheet.create({
     marginRight: 10,
     marginTop: 5,
     justifyContent: "center"
+  },
+  images: {
+    borderColor: "#f2f2f2",
+    borderWidth: 2,
+    borderRadius: 10,
+    height: 120,
+    width: 120
   },
   backToDashboardButton: {
     height: 25,

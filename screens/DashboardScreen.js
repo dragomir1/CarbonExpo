@@ -9,16 +9,7 @@ import * as Permissions from "expo-permissions";
 export default class DashboardScreen extends React.Component {
   constructor(props) {
     super(props);
-    // why is this here?...maybe we put it here and forgot to remove?
-    Notifications.scheduleLocalNotificationAsync(
-      {
-        title: "curls for the girls",
-        body: " I pump iron to pump girls"
-      },
-      {
-        time: new Date().getTime() + 1000
-      }
-    );
+
 
     this.state = {
       userName: firebase.auth().currentUser.displayName,
