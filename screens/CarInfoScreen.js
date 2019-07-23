@@ -17,15 +17,33 @@ export default class CarInfoScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      carMake: "",
       carModel: "",
       carYear: "",
-      carMake: "",
       carMilage: "",
       carEngineType: "",
       userName: firebase.auth().currentUser.displayName
     };
   }
 
+  // TODO: carMilage -> carMileage
+
+  componentDidMount() {
+    let user = firebase.auth().currentUser;
+    let userId = user.uid;
+    firebase
+      .database()
+      .ref("userCarInfo/" + userId)
+      .once("value", snapshot => {
+        this.setState({
+          carMake: snapshot.val().carMake,
+          carModel: snapshot.val().carModel,
+          carYear: snapshot.val().carYear,
+          carMilage: snapshot.val().carMilage,
+          carEngineType: snapshot.val().carYear,
+        });
+      });
+  }
 
   submitInfoHandler = () => {
     let user = firebase.auth().currentUser;
