@@ -27,11 +27,14 @@ export default class DashboardScreen extends React.Component {
       .database()
       .ref("userCarInfo/" + userId)
       .once("value", snapshot => {
-        this.setState({
-          carMake: snapshot.val().carMake,
-          carModel: snapshot.val().carModel,
-          carYear: snapshot.val().carYear
-        });
+        // If the user has car info the db, then populate the form
+        if (snapshot.exists()) {
+          this.setState({
+            carMake: snapshot.val().carMake,
+            carModel: snapshot.val().carModel,
+            carYear: snapshot.val().carYear
+          });
+        }
       });
     //will one be called one here in the constructor. constructor is the place if initialization.
     this.AlertBoxTimeoutHandler();
@@ -74,10 +77,11 @@ export default class DashboardScreen extends React.Component {
           <View style={styles.textGreeting}>
             {/*add state to this..*/}
             <Text style={styles.text}>Hi {this.state.userName},</Text>
+            {!!(this.state.carMake && this.state.carModel && this.state.carYear) &&
             <Text style={styles.text1}>
-              Your Car: {this.state.carMake} {this.state.carModel},{" "}
-              {this.state.carYear}
+              Your Car: {this.state.carMake} {this.state.carModel},{" "}{this.state.carYear}
             </Text>
+            }
           </View>
         </View>
         <View style={styles.alertView}>

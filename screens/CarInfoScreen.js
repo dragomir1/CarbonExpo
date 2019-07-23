@@ -33,13 +33,16 @@ export default class CarInfoScreen extends React.Component {
       .database()
       .ref("userCarInfo/" + userId)
       .once("value", snapshot => {
-        this.setState({
-          carMake: snapshot.val().carMake,
-          carModel: snapshot.val().carModel,
-          carYear: snapshot.val().carYear,
-          carMileage: snapshot.val().carMileage,
-          carEngineType: snapshot.val().carYear,
-        });
+        // If the user has car info the db, then populate the form
+        if (snapshot.exists()) {
+          this.setState({
+            carMake: snapshot.val().carMake,
+            carModel: snapshot.val().carModel,
+            carYear: snapshot.val().carYear,
+            carMileage: snapshot.val().carMileage,
+            carEngineType: snapshot.val().carYear,
+          });
+        }
       });
   }
 
