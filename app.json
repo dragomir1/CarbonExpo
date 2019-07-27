@@ -4,7 +4,7 @@
     "slug": "projectCarbon",
     "privacy": "public",
     "sdkVersion": "33.0.0",
-    "version": "1.0.1",
+    "version": "2.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "splash": {
@@ -13,6 +13,7 @@
             "resizeMode": "contain"
           },
     "android": {
+      "versionCode": 2,
       "package": "com.projectCarbon.projectCarbon",
       "splash" : {
         "backgroundColor": "#272727",
