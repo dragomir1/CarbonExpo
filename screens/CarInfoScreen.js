@@ -40,7 +40,7 @@ export default class CarInfoScreen extends React.Component {
             carModel: snapshot.val().carModel,
             carYear: snapshot.val().carYear,
             carMileage: snapshot.val().carMileage,
-            carEngineType: snapshot.val().carYear,
+            carEngineType: snapshot.val().carYear
           });
         }
       });
@@ -277,7 +277,10 @@ export default class CarInfoScreen extends React.Component {
           data={this.dataCarMake}
           containerStyle={styles.dropdown}
           baseColor="#000"
-          onChangeText={carMake => this.state.carMake !== carMake && this.setState({ carMake, carModel: "" })}
+          onChangeText={carMake =>
+            this.state.carMake !== carMake &&
+            this.setState({ carMake, carModel: "" })
+          }
           value={this.state.carMake}
           name="carMake"
         />

@@ -15,8 +15,14 @@ export default class AppointmentScreen extends React.Component {
   constructor(props) {
     super(props);
 
-    const serviceType = this.props.navigation.getParam("serviceType", "--default-service-type--fix-me--");
-    const apptType = this.props.navigation.getParam("apptType", "--default-appt-type--fix-me--");
+    const serviceType = this.props.navigation.getParam(
+      "serviceType",
+      "--default-service-type--fix-me--"
+    );
+    const apptType = this.props.navigation.getParam(
+      "apptType",
+      "--default-appt-type--fix-me--"
+    );
 
     this.state = {
       isDateTimePickerVisible: false,
@@ -64,9 +70,7 @@ export default class AppointmentScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image
-          style={styles.images}
-          source={this.returnURLHandler()} />
+        <Image style={styles.images} source={this.returnURLHandler()} />
         <View style={styles.headerContainer}>
           <Text style={styles.appointmentHeader}>{this.state.apptType}</Text>
           <Text style={styles.appointmentHeader}>Appointment.</Text>

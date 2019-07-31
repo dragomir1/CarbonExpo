@@ -7,7 +7,10 @@ export default class ChooseServiceOptionsScreen extends React.Component {
   constructor(props) {
     super(props);
     // this make it a member variable belongs in a class and retains values thorugh lifetime of class...
-    const serviceType = this.props.navigation.getParam("serviceType", "--default-service-type--fix-me--");
+    const serviceType = this.props.navigation.getParam(
+      "serviceType",
+      "--default-service-type--fix-me--"
+    );
 
     this.state = {
       serviceType: serviceType
@@ -68,11 +71,12 @@ export default class ChooseServiceOptionsScreen extends React.Component {
       options = this.engineServiceOptions;
     }
     return options.map((option, i) => (
-      <TouchableOpacity key={i} onPress={() => this.navigateToAppointment(option)}>
+      <TouchableOpacity
+        key={i}
+        onPress={() => this.navigateToAppointment(option)}
+      >
         <View style={styles.scheduleServiceOptions}>
-          <Text style={styles.optionsText}>
-            {option}
-          </Text>
+          <Text style={styles.optionsText}>{option}</Text>
         </View>
       </TouchableOpacity>
     ));
@@ -81,10 +85,7 @@ export default class ChooseServiceOptionsScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image
-          source={this.returnURLHandler()}
-          style={styles.images}
-           />
+        <Image source={this.returnURLHandler()} style={styles.images} />
         <View style={styles.containerTop}>
           <Text style={styles.serviceHeader}>Let us take of it for you.</Text>
           <Text style={styles.serviceBodyInfo}>

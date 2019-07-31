@@ -10,7 +10,6 @@ export default class DashboardScreen extends React.Component {
   constructor(props) {
     super(props);
 
-
     this.state = {
       userName: firebase.auth().currentUser.displayName,
       carMake: "",
@@ -76,57 +75,61 @@ export default class DashboardScreen extends React.Component {
           <View style={styles.textGreeting}>
             {/*add state to this..*/}
             <Text style={styles.text}>Hi {this.state.userName},</Text>
-            {!!(this.state.carMake && this.state.carModel && this.state.carYear) &&
-            <Text style={styles.text1}>
-              Your Car: {this.state.carMake} {this.state.carModel},{" "}{this.state.carYear}
-            </Text>
-            }
+            {!!(
+              this.state.carMake &&
+              this.state.carModel &&
+              this.state.carYear
+            ) && (
+              <Text style={styles.text1}>
+                Your Car: {this.state.carMake} {this.state.carModel},{" "}
+                {this.state.carYear}
+              </Text>
+            )}
           </View>
         </View>
         <View style={styles.alertView}>
           {this.state.serviceAlert && this.alertBox}
         </View>
         <View style={styles.containerMain1}>
-            <TouchableOpacity onPress={() => this.navigateToService("engine")}>
-              <Image
-                source={require("./img/engine-text.png")}
-                style={styles.images}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => this.navigateToService("windshield")}
-            >
-              <Image
-                source={require("./img/windshield-text.png")}
-                style={styles.images}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Image
-                source={require("./img/tires-text.png")}
-                style={styles.images}
-              />
-            </TouchableOpacity>
+          <TouchableOpacity onPress={() => this.navigateToService("engine")}>
+            <Image
+              source={require("./img/engine-text.png")}
+              style={styles.images}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.navigateToService("windshield")}
+          >
+            <Image
+              source={require("./img/windshield-text.png")}
+              style={styles.images}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Image
+              source={require("./img/tires-text.png")}
+              style={styles.images}
+            />
+          </TouchableOpacity>
 
-
-            <TouchableOpacity onPress={() => this.navigateToService("carwash")}>
-              <Image
-                source={require("./img/carwash-text.png")}
-                style={styles.images}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Image
-                source={require("./img/gas-text.png")}
-                style={styles.images}
-              />
-            </TouchableOpacity>
-            <TouchableOpacity>
-              <Image
-                source={require("./img/search-text.png")}
-                style={styles.images}
-              />
-            </TouchableOpacity>
+          <TouchableOpacity onPress={() => this.navigateToService("carwash")}>
+            <Image
+              source={require("./img/carwash-text.png")}
+              style={styles.images}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Image
+              source={require("./img/gas-text.png")}
+              style={styles.images}
+            />
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Image
+              source={require("./img/search-text.png")}
+              style={styles.images}
+            />
+          </TouchableOpacity>
         </View>
 
         <View style={styles.updateButtonStyle}>
@@ -153,7 +156,6 @@ const styles = StyleSheet.create({
     alignContent: "center",
     flexDirection: "column",
     marginTop: 50
-
   },
   backToDashboardButton: {
     height: 25,
@@ -162,7 +164,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 10,
+    marginTop: 10
     // borderColor: "red",
     // borderWidth: 1,
   },
@@ -174,9 +176,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     // alignContent: "center",
-    alignSelf: "center",
-        // flexGrow: 1,
-
+    alignSelf: "center"
+    // flexGrow: 1,
   },
   alertView: {
     marginTop: 10,
@@ -210,7 +211,7 @@ const styles = StyleSheet.create({
     textAlign: "center"
   },
   textGreeting: {
-    flexDirection: "column",
+    flexDirection: "column"
     // borderColor: "green",
     // borderWidth: 1,
   },

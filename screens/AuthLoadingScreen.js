@@ -10,7 +10,6 @@ import * as firebase from "firebase";
 
 export default class AuthLoadingScreen extends React.Component {
   componentDidMount() {
-
     // TODO: Is there a better place to put this? IDK.
     firebase.auth().onAuthStateChanged(user => {
       // this.props.navigation.navigate(user ? 'App' : 'Auth');

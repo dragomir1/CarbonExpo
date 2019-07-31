@@ -1,7 +1,7 @@
-import React from 'react';
-import { Button, View } from 'react-native';
-import { ExpoConfigView } from '@expo/samples';
-import * as firebase from 'firebase';
+import React from "react";
+import { Button, View } from "react-native";
+import { ExpoConfigView } from "@expo/samples";
+import * as firebase from "firebase";
 
 export default function SettingsScreen() {
   /**
@@ -10,14 +10,11 @@ export default function SettingsScreen() {
    */
   return (
     <View>
-      <Button
-        title="Logout"
-        onPress={() => firebase.auth().signOut() }
-      />
+      <Button title="Logout" onPress={() => firebase.auth().signOut()} />
     </View>
   );
 }
 
 SettingsScreen.navigationOptions = {
-  title: 'app.json',
+  title: "app.json"
 };

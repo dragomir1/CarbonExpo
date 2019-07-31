@@ -4,15 +4,24 @@ import { Font } from "expo";
 import { Entypo, EvilIcons } from "@expo/vector-icons";
 import { Notifications } from "expo";
 import * as Permissions from "expo-permissions";
-import sendSMS from '../tools/sms';
+import sendSMS from "../tools/sms";
 
 export default class SuccessScreen extends Component {
   constructor(props) {
     super(props);
 
-    const apptType = this.props.navigation.getParam("apptType", "--default-appt-type--fix-me--");
-    const date = this.props.navigation.getParam("date", "--default-date-type--fix-me--");
-    const phoneNumber = this.props.navigation.getParam("phoneNumber", "--default-phone-type--fix-me--");
+    const apptType = this.props.navigation.getParam(
+      "apptType",
+      "--default-appt-type--fix-me--"
+    );
+    const date = this.props.navigation.getParam(
+      "date",
+      "--default-date-type--fix-me--"
+    );
+    const phoneNumber = this.props.navigation.getParam(
+      "phoneNumber",
+      "--default-phone-type--fix-me--"
+    );
 
     this.state = {
       customerRequest: "",
@@ -21,7 +30,13 @@ export default class SuccessScreen extends Component {
       phoneNumber: phoneNumber
     };
 
-    sendSMS(phoneNumber, "Reminder, you have an appointment for " + this.state.apptType + " is at " + this.state.date.toLocaleString());
+    sendSMS(
+      phoneNumber,
+      "Reminder, you have an appointment for " +
+        this.state.apptType +
+        " is at " +
+        this.state.date.toLocaleString()
+    );
   }
 
   render() {
