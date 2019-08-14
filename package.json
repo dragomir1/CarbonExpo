@@ -18,9 +18,10 @@
     "@react-navigation/web": "^1.0.0-alpha.9",
     "expo": "^33.0.0",
     "expo-asset": "^5.0.0",
-    "expo-constants": "^5.0.0",
+    "expo-constants": "^5.0.1",
     "expo-facebook": "^5.0.1",
     "expo-font": "^5.0.0",
+    "expo-google-sign-in": "^5.0.1",
     "expo-sms": "^5.0.1",
     "expo-web-browser": "^5.0.0",
     "firebase": "^6.2.4",
@@ -35,7 +36,8 @@
   },
   "devDependencies": {
     "babel-preset-expo": "^5.1.0",
-    "jest-expo": "^33.0.0"
+    "jest-expo": "^33.0.0",
+    "typescript": "^3.5.3"
   },
   "private": true
 }

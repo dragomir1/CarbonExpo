@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>681396418154-i11ed0nnb6uu6ivqq5aa2r7ov7p2rs6d.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.681396418154-i11ed0nnb6uu6ivqq5aa2r7ov7p2rs6d</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>681396418154-o5pb2sae0r3botc5rv0ogqihidkh6uka.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAlk_GEtV0wLL9nUdoe_ZWnkHk6ETGEPh4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>681396418154</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.projectCarbon.projectCarbon</string>
+	<key>PROJECT_ID</key>
+	<string>carbon-855b7</string>
+	<key>STORAGE_BUCKET</key>
+	<string>carbon-855b7.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:681396418154:ios:d30bdc171b0c3ab5</string>
+	<key>DATABASE_URL</key>
+	<string>https://carbon-855b7.firebaseio.com</string>
+</dict>
+</plist>

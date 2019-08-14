@@ -1,26 +1,24 @@
 import './configuration/firebase.js';
+// import { AppAuth } from 'expo-app-auth';
+import * as GoogleSignIn from 'expo-google-sign-in';
 
 import * as Font from 'expo-font';
 import React, { useState } from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
 import { AppLoading } from 'expo';
 import AppNavigator from './navigation/AppNavigator';
-import CarInfoScreen from './screens/CarInfoScreen';
-import CreditCardInfoScreen from './screens/CreditCardInfoScreen';
-import DashboardScreen from './screens/DashboardScreen';
-import AppointmentScreen from './screens/AppointmentScreen';
-import SuccessScreen from './screens/SuccessScreen';
-import ReviewApptScreen from './screens/ReviewApptScreen';
+
+// const { URLSchemes } = AppAuth;
 
 async function loadResourcesAsync() {
   await Promise.all([
     // do we need to preload the images here...
     // Asset.loadAsync([
     // require('./assets/images/filename')
-  // ])
+    // ])
     Font.loadAsync({
       'open-sans-regular': require('./assets/fonts/OpenSans-Regular.ttf'),
-      'roboto-bold': require('./assets/fonts/Roboto-Bold.ttf'),
+      'roboto-bold': require('./assets/fonts/Roboto-Bold.ttf')
     })
   ]);
 }
@@ -34,6 +32,18 @@ function handleLoadingError(error: Error) {
 function handleFinishLoading(setLoadingComplete) {
   setLoadingComplete(true);
 }
+
+async function googleSigninInit() {
+  try {
+    await GoogleSignIn.initAsync({
+      clientId:
+        '681396418154-7n0u73svmuv7rds91f9ranmp0usi9uv3.apps.googleusercontent.com'
+    });
+  } catch ({ message }) {
+    alert('GoogleSignIn.initAsync(): ' + message);
+  }
+}
+googleSigninInit();
 
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
@@ -49,7 +59,7 @@ export default function App(props) {
   } else {
     return (
       <View style={styles.container}>
-        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+        {Platform.OS === 'ios' && <StatusBar barStyle='default' />}
         <AppNavigator />
       </View>
     );
@@ -59,6 +69,6 @@ export default function App(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-  },
+    backgroundColor: '#fff'
+  }
 });

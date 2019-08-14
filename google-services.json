@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "681396418154",
+    "firebase_url": "https://carbon-855b7.firebaseio.com",
+    "project_id": "carbon-855b7",
+    "storage_bucket": "carbon-855b7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681396418154:android:d886e0c13fa28db8",
+        "android_client_info": {
+          "package_name": "carbon.expo.googlesignin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "681396418154-u85n8femcgdrla86d88l0eekp2ptjle3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "carbon.expo.googlesignin",
+            "certificate_hash": "88bd3c6fa6c150c2e13cdccf6185d2852976d576"
+          }
+        },
+        {
+          "client_id": "681396418154-42t8hqbnp59atqv63gjg9n7vkul0cnpj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDO5l3FxXpZNbfOgNUG4j0itmyBt7VSCv4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "681396418154-42t8hqbnp59atqv63gjg9n7vkul0cnpj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "681396418154-7n0u73svmuv7rds91f9ranmp0usi9uv3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "carbon.expo.googlesignin"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:681396418154:android:d30bdc171b0c3ab5",
+        "android_client_info": {
+          "package_name": "com.projectCarbon.projectCarbon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "681396418154-o5pb2sae0r3botc5rv0ogqihidkh6uka.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.projectCarbon.projectCarbon",
+            "certificate_hash": "88bd3c6fa6c150c2e13cdccf6185d2852976d576"
+          }
+        },
+        {
+          "client_id": "681396418154-42t8hqbnp59atqv63gjg9n7vkul0cnpj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDO5l3FxXpZNbfOgNUG4j0itmyBt7VSCv4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "681396418154-42t8hqbnp59atqv63gjg9n7vkul0cnpj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "681396418154-7n0u73svmuv7rds91f9ranmp0usi9uv3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "carbon.expo.googlesignin"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

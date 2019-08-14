@@ -4,18 +4,24 @@
     "slug": "projectCarbon",
     "privacy": "public",
     "sdkVersion": "33.0.0",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "splash": {
-            "backgroundColor": "#272727",
-            "image": "./assets/images/splashsmall.png",
-            "resizeMode": "contain"
-          },
+      "backgroundColor": "#272727",
+      "image": "./assets/images/splashsmall.png",
+      "resizeMode": "contain"
+    },
     "android": {
-      "versionCode": 2,
+      "config": {
+        "googleSignIn": {
+          "certificateHash": "88:BD:3C:6F:A6:C1:50:C2:E1:3C:DC:CF:61:85:D2:85:29:76:D5:76"
+        }
+      },
+      "versionCode": 3,
       "package": "com.projectCarbon.projectCarbon",
-      "splash" : {
+      "googleServicesFile": "./google-services.json",
+      "splash": {
         "backgroundColor": "#272727",
         "image": "./assets/images/splashsmall.png",
         "ldpi": "./assets/images/splashsmall.png",
@@ -24,7 +30,13 @@
       }
     },
     "ios": {
-      "splash" : {
+      "bundleIdentifier": "com.projectCarbon.projectCarbon",
+      "config": {
+        "googleSignIn": {
+          "reservedClientId": "com.googleusercontent.apps.681396418154-i11ed0nnb6uu6ivqq5aa2r7ov7p2rs6d"
+        }
+      },
+      "splash": {
         "backgroundColor": "#272727",
         "image": "./assets/images/splashsmall.png",
         "ldpi": "./assets/images/splashsmall.png",

@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   View,
   StyleSheet,
@@ -8,20 +8,20 @@ import {
   Button,
   Image,
   TouchableOpacity
-} from "react-native";
-import * as firebase from "firebase";
-import { Dropdown } from "react-native-material-dropdown";
-import { Font } from "expo";
+} from 'react-native';
+import * as firebase from 'firebase';
+import { Dropdown } from 'react-native-material-dropdown';
+import { Font } from 'expo';
 
 export default class CarInfoScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      carMake: "",
-      carModel: "",
-      carYear: "",
-      carMileage: "",
-      carEngineType: "",
+      carMake: '',
+      carModel: '',
+      carYear: '',
+      carMileage: '',
+      carEngineType: '',
       userName: firebase.auth().currentUser.displayName
     };
   }
@@ -31,8 +31,8 @@ export default class CarInfoScreen extends React.Component {
     let userId = user.uid;
     firebase
       .database()
-      .ref("userCarInfo/" + userId)
-      .once("value", snapshot => {
+      .ref('userCarInfo/' + userId)
+      .once('value', snapshot => {
         // If the user has car info the db, then populate the form
         if (snapshot.exists()) {
           this.setState({
@@ -51,7 +51,7 @@ export default class CarInfoScreen extends React.Component {
     let userId = user.uid;
     firebase
       .database()
-      .ref("userCarInfo/" + userId)
+      .ref('userCarInfo/' + userId)
       .set({
         carModel: this.state.carModel,
         carYear: this.state.carYear,
@@ -59,7 +59,7 @@ export default class CarInfoScreen extends React.Component {
         carMileage: this.state.carMileage,
         carEngineType: this.state.carEngineType
       })
-      .then(() => this.props.navigation.navigate("App"))
+      .then(() => this.props.navigation.navigate('App'))
       .catch(error => {
         console.warn(error);
       });
@@ -67,195 +67,195 @@ export default class CarInfoScreen extends React.Component {
 
   dataCarMake = [
     {
-      value: "Toyota"
+      value: 'Toyota'
     },
     {
-      value: "Honda"
+      value: 'Honda'
     },
     {
-      value: "Ford"
+      value: 'Ford'
     },
     {
-      value: "BMW"
+      value: 'BMW'
     }
   ];
 
   dataBMWModels = [
     {
-      value: "M3"
+      value: 'M3'
     },
     {
-      value: "M5"
+      value: 'M5'
     },
     {
-      value: "X5"
+      value: 'X5'
     },
     {
-      value: "X6"
+      value: 'X6'
     },
     {
-      value: "X3"
+      value: 'X3'
     },
     {
-      value: "Z4"
+      value: 'Z4'
     }
   ];
 
   dataFordModels = [
     {
-      value: "Mustang"
+      value: 'Mustang'
     },
     {
-      value: "Focus"
+      value: 'Focus'
     },
     {
-      value: "Fusion"
+      value: 'Fusion'
     },
     {
-      value: "Escape"
+      value: 'Escape'
     },
     {
-      value: "F-150"
+      value: 'F-150'
     },
     {
-      value: "Fiesta"
+      value: 'Fiesta'
     }
   ];
 
   dataToyotaModels = [
     {
-      value: "Camry"
+      value: 'Camry'
     },
     {
-      value: "Prius"
+      value: 'Prius'
     },
     {
-      value: "Corolla"
+      value: 'Corolla'
     },
     {
-      value: "Highlander"
+      value: 'Highlander'
     },
     {
-      value: "4Runner"
+      value: '4Runner'
     },
     {
-      value: "Rav4"
+      value: 'Rav4'
     }
   ];
 
   dataCarYear = [
     {
-      value: "2019"
+      value: '2019'
     },
     {
-      value: "2018"
+      value: '2018'
     },
     {
-      value: "2017"
+      value: '2017'
     },
     {
-      value: "2016"
+      value: '2016'
     },
     {
-      value: "2015"
+      value: '2015'
     },
     {
-      value: "2014"
+      value: '2014'
     }
   ];
 
   dataCarMileage = [
     {
-      value: "> 50,000"
+      value: '> 50,000'
     },
     {
-      value: "> 100,000"
+      value: '> 100,000'
     },
     {
-      value: "> 125,000"
+      value: '> 125,000'
     },
     {
-      value: "> 150,000"
+      value: '> 150,000'
     },
     {
-      value: "> 175,000"
+      value: '> 175,000'
     },
     {
-      value: "> 200,000"
+      value: '> 200,000'
     }
   ];
 
   dataCarEngineType = [
     {
-      value: "V6"
+      value: 'V6'
     },
     {
-      value: "2.4L"
+      value: '2.4L'
     },
     {
-      value: "5.0"
+      value: '5.0'
     },
     {
-      value: "Turbo"
+      value: 'Turbo'
     },
     {
-      value: "6 Cylinder"
+      value: '6 Cylinder'
     },
     {
-      value: "Electic"
+      value: 'Electic'
     }
   ];
 
   dataHondaModels = [
     {
-      value: "Civic"
+      value: 'Civic'
     },
     {
-      value: "Insight"
+      value: 'Insight'
     },
     {
-      value: "Accord"
+      value: 'Accord'
     },
     {
-      value: "Pilot"
+      value: 'Pilot'
     },
     {
-      value: "CR-V"
+      value: 'CR-V'
     },
     {
-      value: "Fit"
+      value: 'Fit'
     }
   ];
 
   dataHondaEngineTypes = [
     {
-      value: "V4-cylinder"
+      value: 'V4-cylinder'
     },
     {
-      value: "6-cylinder"
+      value: '6-cylinder'
     },
     {
-      value: "V6"
+      value: 'V6'
     },
     {
-      value: "V8"
+      value: 'V8'
     },
     {
-      value: "Straight 4"
+      value: 'Straight 4'
     },
     {
-      value: "Inline 5-cylinder"
+      value: 'Inline 5-cylinder'
     }
   ];
 
   getCarModelOptionsForMake(carMake) {
-    if (carMake === "Honda") {
+    if (carMake === 'Honda') {
       return this.dataHondaModels;
-    } else if (carMake === "Toyota") {
+    } else if (carMake === 'Toyota') {
       return this.dataToyotaModels;
-    } else if (carMake === "Ford") {
+    } else if (carMake === 'Ford') {
       return this.dataFordModels;
-    } else if (carMake === "BMW") {
+    } else if (carMake === 'BMW') {
       return this.dataBMWModels;
     }
   }
@@ -273,55 +273,55 @@ export default class CarInfoScreen extends React.Component {
           you in situations by knowing these few facts about your car.
         </Text>
         <Dropdown
-          label="Make"
+          label='Make'
           data={this.dataCarMake}
           containerStyle={styles.dropdown}
-          baseColor="#000"
+          baseColor='#000'
           onChangeText={carMake =>
             this.state.carMake !== carMake &&
-            this.setState({ carMake, carModel: "" })
+            this.setState({ carMake, carModel: '' })
           }
           value={this.state.carMake}
-          name="carMake"
+          name='carMake'
         />
         <Dropdown
-          label="Model"
+          label='Model'
           data={carModelOptions}
           containerStyle={styles.dropdown}
-          baseColor="#000"
+          baseColor='#000'
           onChangeText={carModel => this.setState({ carModel })}
           value={this.state.carModel}
-          name="carModel"
+          name='carModel'
         />
         <Dropdown
-          label="Year"
+          label='Year'
           data={this.dataCarYear}
           containerStyle={styles.dropdown}
-          baseColor="#000"
+          baseColor='#000'
           onChangeText={carYear => this.setState({ carYear })}
           value={this.state.carYear}
-          name="carYear"
+          name='carYear'
         />
         <Dropdown
-          label="Milage"
+          label='Milage'
           data={this.dataCarMileage}
           containerStyle={styles.dropdown}
-          baseColor="#000"
+          baseColor='#000'
           onChangeText={carMileage => this.setState({ carMileage })}
           value={this.state.carMileage}
-          name="carMileage"
+          name='carMileage'
         />
         <Dropdown
-          label="Engine Type"
+          label='Engine Type'
           data={this.dataCarEngineType}
           containerStyle={styles.dropdown}
-          baseColor="#000"
+          baseColor='#000'
           onChangeText={carEngineType => this.setState({ carEngineType })}
           value={this.state.carEngineType}
-          name="carEngineType"
+          name='carEngineType'
         />
         <TouchableOpacity
-          onPress={() => this.props.navigation.navigate("CreditCardInfoScreen")}
+          onPress={() => this.props.navigation.navigate('CreditCardInfoScreen')}
         >
           <View style={styles.ccInfo}>
             <Text style={styles.ccInfoText}>Add Credit Card Information</Text>
@@ -338,55 +338,55 @@ export default class CarInfoScreen extends React.Component {
 }
 
 CarInfoScreen.navigationOptions = {
-  title: "Car Info"
+  title: 'Car Info'
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    justifyContent: "center",
-    alignItems: "center"
+    backgroundColor: '#fff',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   ccInfo: {
     height: 25,
     width: 175,
-    backgroundColor: "#000",
+    backgroundColor: '#000',
     borderRadius: 25,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     marginTop: 30
   },
   continueButton: {
     height: 25,
     width: 175,
-    backgroundColor: "#254ade",
+    backgroundColor: '#254ade',
     borderRadius: 25,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     marginTop: 10
   },
   continueText: {
-    color: "#fff",
+    color: '#fff',
     fontSize: 12
   },
   ccInfoText: {
-    color: "#fff",
+    color: '#fff',
     fontSize: 12
   },
   carHeader: {
     fontSize: 20,
-    fontFamily: "roboto-bold",
-    fontWeight: "700"
+    fontFamily: 'roboto-bold',
+    fontWeight: '700'
   },
   carBodyInfo: {
     fontSize: 15,
-    fontFamily: "open-sans-regular",
-    textAlign: "center",
+    fontFamily: 'open-sans-regular',
+    textAlign: 'center',
     marginLeft: 10,
     marginRight: 10,
     marginTop: 5,
-    justifyContent: "center"
+    justifyContent: 'center'
   },
   dropdown: {
     marginBottom: 10,

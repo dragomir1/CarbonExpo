@@ -1,38 +1,71 @@
-import React from "react";
-import { StyleSheet, Image, TouchableOpacity } from "react-native";
-import Expo from "expo";
-import * as firebase from "firebase";
+import React from 'react';
+import { StyleSheet, Image, TouchableOpacity } from 'react-native';
+import Expo from 'expo';
+import * as firebase from 'firebase';
 import { Google } from 'expo';
+import * as GoogleSignIn from 'expo-google-sign-in';
+import Constants from 'expo-constants';
 
-async function signInWithGoogleAsync() {
-  try {
-    const result = await Google.logInAsync({
-      androidClientId:
-        "681396418154-s46q2sgrsg4o0tud5dulse4vvs53fl2p.apps.googleusercontent.com",
-      iosClientId:
-        "681396418154-n1rij7cdhvgrq2u10tq2s4pscqaveh9l.apps.googleusercontent.com",
-      scopes: ["profile", "email"]
-    });
-    if (result.type === "success") {
-      const credential = firebase.auth.GoogleAuthProvider.credential(
-        null, result.accessToken
-      );
-      firebase
-        .auth()
-        .signInWithCredential(credential)
-        .then(userCredential => {
-          // Login is handled by a Firebase listener in AuthLoadingScreen
-        })
-        .catch(error => {
-          console.warn(error);
-          // Handle Errors here.
-        });
-    } else {
-      console.warn("didn't log in");
+let signInGoogleAsync;
+
+if (Constants.appOwnership === 'standalone') {
+  signInGoogleAsync = async () => {
+    try {
+      await GoogleSignIn.askForPlayServicesAsync();
+      const { type, user } = await GoogleSignIn.signInAsync();
+      if (type === 'success') {
+        //need somekind of token to pass to firebase to log in.
+        const credential = firebase.auth.GoogleAuthProvider.credential(
+          user.auth.idToken,
+          user.auth.accessToken
+        );
+        firebase
+          .auth()
+          .signInWithCredential(credential)
+          .then(userCredential => {
+            // Login is handled by a Firebase listener in AuthLoadingScreen
+          })
+          .catch(error => {
+            console.warn(error);
+            // Handle Errors here.
+          });
+      }
+    } catch ({ message }) {
+      alert('login: Error:' + message);
     }
-  } catch (e) {
-    console.warn(e);
-  }
+  };
+} else if (Constants.appOwnership === 'expo') {
+  signInGoogleAsync = async () => {
+    try {
+      const result = await Google.logInAsync({
+        androidClientId:
+          '681396418154-s46q2sgrsg4o0tud5dulse4vvs53fl2p.apps.googleusercontent.com',
+        iosClientId:
+          '681396418154-n1rij7cdhvgrq2u10tq2s4pscqaveh9l.apps.googleusercontent.com',
+        scopes: ['profile', 'email']
+      });
+      if (result.type === 'success') {
+        const credential = firebase.auth.GoogleAuthProvider.credential(
+          null,
+          result.accessToken
+        );
+        firebase
+          .auth()
+          .signInWithCredential(credential)
+          .then(userCredential => {
+            // Login is handled by a Firebase listener in AuthLoadingScreen
+          })
+          .catch(error => {
+            console.warn(error);
+            // Handle Errors here.
+          });
+      } else {
+        console.warn("didn't log in");
+      }
+    } catch (e) {
+      console.warn(e);
+    }
+  };
 }
 
 const styles = StyleSheet.create({
@@ -44,11 +77,8 @@ const styles = StyleSheet.create({
 
 export default function GoogleLoginButton() {
   return (
-    <TouchableOpacity
-      onPress={signInWithGoogleAsync}>
-      <Image
-        source={require("./img/google.png")}
-        style={styles} />
+    <TouchableOpacity onPress={signInGoogleAsync}>
+      <Image source={require('./img/google.png')} style={styles} />
     </TouchableOpacity>
   );
 }
